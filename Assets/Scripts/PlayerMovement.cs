@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving = false;
     private Vector2Int moveDirection;
     private Vector3 targetPosition;
+
+    private float originalMoveCooldown;
+    private bool isBoosted = false;
+
 
     void Start()
     {
@@ -61,5 +66,32 @@ public class PlayerMovement : MonoBehaviour
     {
         Collider2D hit = Physics2D.OverlapBox(target, new Vector2(0.4f, 0.4f), 0f, collisionLayer);
         return hit != null;
+    }
+
+
+
+
+
+
+
+
+
+
+    public void ApplySpeedBoost(float multiplier, float duration)
+    {
+        if (!isBoosted)
+        {
+            originalMoveCooldown = moveCooldown;
+            moveCooldown *= multiplier;
+            isBoosted= true;
+            StartCoroutine(RemoveSpeedBoostAfterDelay(duration));
+        }
+    }
+
+    private IEnumerator RemoveSpeedBoostAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        moveCooldown = originalMoveCooldown;
+        isBoosted= false;
     }
 }

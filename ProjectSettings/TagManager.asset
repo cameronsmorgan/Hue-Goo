@@ -53,5 +53,8 @@ TagManager:
   - name: Border
     uniqueID: 521125029
     locked: 0
+  - name: Powerup
+    uniqueID: 1414009349
+    locked: 0
   m_RenderingLayers:
   - Default
