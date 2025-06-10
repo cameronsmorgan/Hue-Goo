@@ -11,12 +11,34 @@ public class PaintTrail : MonoBehaviour
     void Update()
     {
         Vector3Int tilePosition = paintTilemap.WorldToCell(transform.position);
-        TileBase currentTile = paintTilemap.GetTile(tilePosition);
-        TileBase targetTile = isRed ? redPaintTile : bluePaintTile;
 
-        if (currentTile != targetTile)
+        // Only set tile if we're on a new position
+        if (!paintTilemap.HasTile(tilePosition) ||
+            paintTilemap.GetTile(tilePosition) != (isRed ? redPaintTile : bluePaintTile))
         {
-            paintTilemap.SetTile(tilePosition, targetTile);
+            paintTilemap.SetTile(tilePosition, isRed ? redPaintTile : bluePaintTile);
+        }
+
+        CheckForOverwrite(tilePosition);
+
+    }
+
+    private void CheckForOverwrite(Vector3Int cellPosition)
+    {
+        TileBase currentTile = paintTilemap.GetTile(cellPosition);
+
+        if (isRed && currentTile == bluePaintTile)
+        {
+            // Player 1 is covering Player 2's territory
+            TerritoryTracker tracker = FindFirstObjectByType<TerritoryTracker>();
+            if (tracker != null) tracker.UpdateTerritory();
+        }
+        else if (!isRed && currentTile == redPaintTile)
+        {
+            // Player 2 is covering Player 1's territory
+            TerritoryTracker tracker = FindFirstObjectByType<TerritoryTracker>();
+            if (tracker != null) tracker.UpdateTerritory();
         }
     }
+
 }
