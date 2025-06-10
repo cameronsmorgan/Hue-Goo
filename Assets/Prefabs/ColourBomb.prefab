@@ -148,3 +148,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
+  collectionSound: {fileID: 8300000, guid: 8c130028c8da0d441aef4768db84ec0a, type: 3}
+  volume: 1
