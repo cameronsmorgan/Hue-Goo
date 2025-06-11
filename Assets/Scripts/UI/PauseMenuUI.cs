@@ -33,7 +33,7 @@ public class PauseMenuUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         isPaused = false;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Home");
     }
 
     public void OpenHelpPanel()
