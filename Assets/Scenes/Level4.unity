@@ -11212,15 +11212,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Score: 0
   player2Score: 0
-  countdownDuration: 5
-  roundScenes:
-  - Level4
-  - Level4.1
-  - Level4.2
   currentRound: 0
-  players:
-  - {fileID: 2054470384}
-  - {fileID: 773037633}
+  totalRounds: 3
+  countdownDuration: 5
 --- !u!114 &722527195
 MonoBehaviour:
   m_ObjectHideFlags: 0
