@@ -60,12 +60,12 @@ public class LevelProgression : MonoBehaviour
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene("PartyMode");
+            SceneManager.LoadScene(nextSceneIndex);
         }
         else
         {
             Debug.Log("All levels completed! Returning to menu.");
-            SceneManager.LoadScene("PartyMode"); // Assuming 0 is your menu scene
+            SceneManager.LoadScene(0); // Assuming 0 is your menu scene
         }
     }
 
