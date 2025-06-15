@@ -11,7 +11,9 @@ public class PartyScenes : MonoBehaviour
     public List<string> territory;
     public List<string> collection;
     public List<string> race;
-    public List<string> memory;
+    public List<string> memory; 
+
+
 
     //public void LoadRandomScene()
     //{
@@ -61,13 +63,104 @@ public class PartyScenes : MonoBehaviour
     public void StartParty(int n)
     {
         //toPlay.Clear();
-        populateToPlay(n);
+        //populateToPlay(n);
+
+        LevelTypes(n);
     }
 
     public void LoadNext()
     {
         string sceneName = PartyScenes.toPlay[0];
         toPlay.RemoveAt(0);
+
+        foreach (var scene in toPlay)
+        {
+            Debug.Log("Lineup: " + scene);
+        }
+
+
         SceneManager.LoadScene(sceneName);
+    }
+
+    //public void LoadNextScene(int currentSceneIndex)
+    //{
+    //    if (currentSceneIndex + 1 < selectedScenes.Count)
+    //    {
+    //        SceneManager.LoadScene(selectedScenes[currentSceneIndex + 1]);
+    //    }
+    //    else
+    //    {
+    //        // All rounds complete - you can load results or return to main menu
+    //        //SceneManager.LoadScene("ResultsScene");
+
+    //        Debug.Log("done"); 
+    //    }
+    //}
+
+
+    public void LevelTypes(int n)
+    {
+        toPlay = new List<string>();
+        List<string> selectedScenes;
+
+
+        while (toPlay.Count < n)
+        {
+            selectedScenes = new List<string>
+            {
+                GetRandomNew(territory),
+                GetRandomNew(collection),
+                GetRandomNew(race),
+                GetRandomNew(memory),
+            };
+
+            selectedScenes = ShuffleList(selectedScenes);
+
+            while (toPlay.Count < n && selectedScenes.Count > 0)
+            {
+                toPlay.Add(selectedScenes[0]);
+                selectedScenes.RemoveAt(0);
+            }
+        }
+
+        
+
+        
+
+
+        foreach (var scene in toPlay)
+        {
+            Debug.Log("Randomized Scene: " + scene);
+        }
+
+
+        //SceneManager.LoadScene(selectedScenes[0]);
+    }
+
+    string GetRandomNew(List<string> list)
+    {
+        bool stop = false;
+        string temp = "";
+        while (!stop)
+        {
+            temp = list[Random.Range(0, list.Count)];
+
+            if (!toPlay.Contains(temp)) stop = true;
+        }
+
+        return temp;
+    }
+
+    private List<string> ShuffleList(List<string> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            string temp = list[i];
+            int randomIndex = Random.Range(i, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
+
+        return list;
     }
 }
