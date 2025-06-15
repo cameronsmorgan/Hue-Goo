@@ -11212,9 +11212,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Score: 0
   player2Score: 0
-  currentRound: 0
-  totalRounds: 3
   countdownDuration: 5
+  roundScenes:
+  - Level4
+  - Level4.1
+  - Level4.2
+  currentRound: 0
+  players:
+  - {fileID: 2054470384}
+  - {fileID: 773037633}
 --- !u!114 &722527195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11535,8 +11541,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.48694, y: 128}
-  m_SizeDelta: {x: 404.272, y: 71}
+  m_AnchoredPosition: {x: 12, y: 128}
+  m_SizeDelta: {x: 289.2981, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &915977794
 GameObject:
@@ -13596,8 +13602,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66.84985, y: 225}
-  m_SizeDelta: {x: 398.9979, y: 71}
+  m_AnchoredPosition: {x: 12, y: 225}
+  m_SizeDelta: {x: 289.2981, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1456729687
 GameObject:
