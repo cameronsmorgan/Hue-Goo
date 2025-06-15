@@ -2,9 +2,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class PartyScenes : MonoBehaviour
+public class PartyModeManager : MonoBehaviour
 {
-    static List<string> toPlay; 
+    // Static Variables for party mode
+    public static List<string> toPlay;
+    public static int numRounds;
+    public static int numToWin;
+    public static int player1WinPoints;
+    public static int player2WinPoints;
+    public static int lastRoundWinner;
+
+
+
     public List<string> sceneNames; // List of scene names to choose from
     public List<string> playedScenes = new List<string>(); // Keep track of played scenes
 
@@ -44,8 +53,12 @@ public class PartyScenes : MonoBehaviour
     private void populateToPlay(int n)
     {
         toPlay = new List<string>();
+        numRounds = n;
+        numToWin = Mathf.CeilToInt(n/2f);
+        player1WinPoints = 0;
+        player2WinPoints = 0;
+        lastRoundWinner = 0;
 
-        
 
         while (toPlay.Count != n)
         {
@@ -70,7 +83,7 @@ public class PartyScenes : MonoBehaviour
 
     public void LoadNext()
     {
-        string sceneName = PartyScenes.toPlay[0];
+        string sceneName = PartyModeManager.toPlay[0];
         toPlay.RemoveAt(0);
 
         foreach (var scene in toPlay)

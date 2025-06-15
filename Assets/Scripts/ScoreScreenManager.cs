@@ -1,0 +1,97 @@
+using UnityEngine;
+using System.Collections;
+
+public class ScoreScreenManager : MonoBehaviour
+{
+    [Header("Player 1 stuff")]
+    public Transform snailP1;
+    public Transform startP1;
+    public Transform endP1;
+
+    [Header("Player 2 stuff")]
+    public Transform snailP2;
+    public Transform startP2;
+    public Transform endP2;
+
+
+    [Header("Animation Stuff")]
+    [SerializeField] float moveDuration;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        PartyModeManager.player1WinPoints = 2;
+        PartyModeManager.player2WinPoints = 3;
+        PartyModeManager.numToWin = 5;
+
+        PartyModeManager.lastRoundWinner = 2;
+        SetSnailPositions();
+
+        MoveRoundWinner();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    void SetSnailPositions()
+    {
+        snailP1.position = Vector3.Lerp(startP1.position, endP1.position, PartyModeManager.player1WinPoints / (float)PartyModeManager.numToWin);
+        snailP2.position = Vector3.Lerp(startP2.position, endP2.position, PartyModeManager.player2WinPoints / (float)PartyModeManager.numToWin);
+    }
+
+   
+
+    void MoveRoundWinner()
+    {
+
+        int winner = PartyModeManager.lastRoundWinner;
+
+        if (winner == 0) return;
+
+        if (winner == 1)
+            PartyModeManager.player1WinPoints++;
+        else if (winner == 2)
+            PartyModeManager.player2WinPoints++;
+
+        StartCoroutine(MoveSnail(winner, moveDuration));
+        
+    }
+
+    IEnumerator MoveSnail(int whichSnail, float duration)
+    {
+        Transform snail = null;
+        Vector3 targetPosition;
+        switch (whichSnail)
+        {
+            case 1:
+                snail = snailP1;
+                targetPosition = Vector3.Lerp(startP1.position, endP1.position, PartyModeManager.player1WinPoints / (float)PartyModeManager.numToWin);
+                break;
+            case 2:
+                snail = snailP2;
+                targetPosition = Vector3.Lerp(startP2.position, endP2.position, PartyModeManager.player2WinPoints / (float)PartyModeManager.numToWin);
+                break;
+            default:
+                targetPosition = Vector3.zero;
+                break;
+        }
+
+        Debug.Log($"Moving {snail}");
+
+        Vector3 startPosition = snail.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            // Moves along a spherical arc between the two positions
+            snail.position = Vector3.Slerp(startPosition, targetPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Snap to final position
+        transform.position = targetPosition;
+    }
+}
