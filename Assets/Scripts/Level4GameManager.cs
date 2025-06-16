@@ -16,6 +16,8 @@ public class Level4GameManager : MonoBehaviour
 
     private bool roundOver = false;
 
+    public List<string> raceRounds; 
+
     private void Awake()
     {
         if (Instance == null)
@@ -27,6 +29,12 @@ public class Level4GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+
+        if (Instance.raceRounds.Count == 0)
+        {
+            populateRaceRounds(3);
+            LoadNextRoundScene(); 
         }
     }
 
@@ -81,11 +89,20 @@ public class Level4GameManager : MonoBehaviour
             string result;
 
             if (player1Score > player2Score)
+            {
                 result = "Player 1 Wins!";
+                PartyModeManager.lastRoundWinner = 1;
+            }
             else if (player2Score > player1Score)
+            {
                 result = "Player 2 Wins!";
+                PartyModeManager.lastRoundWinner = 1;
+            }
             else
+            {
                 result = "It's a Tie!";
+                PartyModeManager.lastRoundWinner = 0;
+            }
 
             RaceUIManager.Instance.ShowFinalResult(result);
         }
@@ -97,13 +114,35 @@ public class Level4GameManager : MonoBehaviour
 
     public void LoadNextRoundScene()
     {
-        string[] roundScenes = { "Level4", "Level4.1", "Level4.2" };
+        //string[] roundScenes = { "Race1", "Race2", "Race3" };
 
-        if (currentRound < roundScenes.Length)
+        if (currentRound < raceRounds.Count)
         {
-            string nextSceneName = roundScenes[currentRound];
+            string nextSceneName = raceRounds[currentRound];
             SceneManager.LoadScene(nextSceneName);
         }
+    }
+
+    private void populateRaceRounds(int n)
+    {
+        raceRounds = new List<string>();
+        List<string> sceneNames = new List<string> {"Race1", "Race2", "Race3", "Race4", "Race5", "Race6" };
+        while (raceRounds.Count != n)
+        {
+            int randomIndex = Random.Range(0, sceneNames.Count);
+            string sceneName = sceneNames[randomIndex];
+            if (!raceRounds.Contains(sceneName))
+            {
+                raceRounds.Add(sceneName);
+            }
+        }
+
+        foreach (var scene in raceRounds)
+        {
+            Debug.Log("Lineup: " + scene);
+        }
+
+
     }
 
     public void ResetScores()
