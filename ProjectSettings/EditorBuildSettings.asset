@@ -9,33 +9,33 @@ EditorBuildSettings:
     path: Assets/Scenes/Home.unity
     guid: 018f60f4e666a07409f79e30926ed290
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Tutorial.unity
     guid: 2e0000a256d60bf48a3eca71374a389a
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/Territory1.unity
     guid: ceedff2a450776e4f949504c62c35877
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
+    path: Assets/Scenes/Collection1.unity
     guid: 540109504cc6be340b7624fefbc1c771
   - enabled: 1
     path: Assets/Scenes/PartyMode.unity
-    guid: de9877c1e94004d4a8ae9b67fa6b6c3a
+    guid: fdf297e4a983af94797856fbe79a1851
   - enabled: 1
-    path: Assets/Scenes/Level4.unity
-    guid: d144df29a1c5ba444ac75fcb16783b2e
-  - enabled: 1
+    path: Assets/Scenes/Race1.unity
+    guid: c5439ee29a7c7cb4c8f6c592a929404d
+  - enabled: 0
     path: Assets/Scenes/Level1 1.unity
     guid: de0ae19f9e6caa74290b568c22d4472d
   - enabled: 1
-    path: Assets/Scenes/Level2 1.unity
+    path: Assets/Scenes/Territory2.unity
     guid: 90c824099a72bcf45bfe58aa45d475cc
   - enabled: 1
-    path: Assets/Scenes/Level3 1.unity
+    path: Assets/Scenes/Collection2.unity
     guid: 986521ad1a2133f4bbbeace6d03eee15
   - enabled: 1
-    path: Assets/Scenes/Level4 1.unity
-    guid: 3cc7389e186470e4f86c06b7155e0f85
-  - enabled: 1
+    path: Assets/Scenes/Race2.unity
+    guid: ba6494ea1346e45a2b2f823abd83659c
+  - enabled: 0
     path: Assets/Scenes/Level5 1.unity
     guid: 102ce7d974762664e9f660a9ac3fce6d
   m_configObjects:

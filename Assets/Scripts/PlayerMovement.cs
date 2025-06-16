@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float originalMoveCooldown;
     private bool isBoosted = false;
+    public bool canMove = true;
 
 
     void Start()
@@ -23,59 +24,53 @@ public class PlayerMovement : MonoBehaviour
         timer = 0f;
     }
 
-    void Update()
+void Update()
+{
+    if (!canMove) return; // << Block input if not allowed
+
+    timer += Time.deltaTime;
+
+    if (!isMoving && timer >= moveCooldown)
     {
-        timer += Time.deltaTime;
+        int moveX = (int)Input.GetAxisRaw(horizontalInput);
+        int moveY = (int)Input.GetAxisRaw(verticalInput);
 
-        if (!isMoving && timer >= moveCooldown)
+        if (moveX != 0)
+            moveY = 0;
+
+        moveDirection = new Vector2Int(moveX, moveY);
+
+        if (moveDirection != Vector2Int.zero)
         {
-            int moveX = (int)Input.GetAxisRaw(horizontalInput);
-            int moveY = (int)Input.GetAxisRaw(verticalInput);
+            Vector3 proposedPosition = targetPosition + new Vector3(moveDirection.x * 0.5f, moveDirection.y * 0.5f, 0f);
 
-            if (moveX != 0)
-                moveY = 0;
-
-            moveDirection = new Vector2Int(moveX, moveY);
-
-            if (moveDirection != Vector2Int.zero)
+            if (!IsBlocked(proposedPosition))
             {
-                Vector3 proposedPosition = targetPosition + new Vector3(moveDirection.x * 0.5f, moveDirection.y * 0.5f, 0f);
-
-                if (!IsBlocked(proposedPosition))
-                {
-                    targetPosition = proposedPosition;
-                    isMoving = true;
-                    timer = 0f;
-                }
-            }
-        }
-
-        if (isMoving)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, 20f * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
-            {
-                transform.position = targetPosition;
-                isMoving = false;
+                targetPosition = proposedPosition;
+                isMoving = true;
+                timer = 0f;
             }
         }
     }
+
+    if (isMoving)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, 20f * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+        {
+            transform.position = targetPosition;
+            isMoving = false;
+        }
+    }
+}
+
 
     bool IsBlocked(Vector3 target)
     {
         Collider2D hit = Physics2D.OverlapBox(target, new Vector2(0.4f, 0.4f), 0f, collisionLayer);
         return hit != null;
     }
-
-
-
-
-
-
-
-
-
 
     public void ApplySpeedBoost(float multiplier, float duration)
     {
