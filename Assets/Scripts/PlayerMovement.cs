@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isBoosted = false;
     public bool canMove = true;
 
+    public Animator SnailController;
+
     void Start()
     {
         targetPosition = transform.position;
@@ -51,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
                     // Rotate to face the direction of movement
                     RotateTowardsDirection(moveDirection);
+
+                    IsMoving();
                 }
             }
         }
@@ -63,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.position = targetPosition;
                 isMoving = false;
+
+                IsStill();
             }
         }
     }
@@ -96,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (direction == Vector2Int.zero) return;
 
-        // If your sprite’s base facing direction is UP (common in top-down sprites)
         if (direction == Vector2Int.up)
             transform.rotation = Quaternion.Euler(0, 0, 0);       // Face up
         else if (direction == Vector2Int.down)
@@ -106,4 +111,15 @@ public class PlayerMovement : MonoBehaviour
         else if (direction == Vector2Int.right)
             transform.rotation = Quaternion.Euler(0, 0, -90);     // Face right
     }
+
+    public void IsMoving()
+    {
+        SnailController.SetBool("isMoving", true);
+    }
+
+    public void IsStill()
+    {
+        SnailController.SetBool("isMoving", false);
+    }
 }
+
