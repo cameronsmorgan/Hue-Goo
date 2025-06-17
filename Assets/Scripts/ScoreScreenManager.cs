@@ -132,13 +132,13 @@ public class ScoreScreenManager : MonoBehaviour
         {
             Debug.Log("Player 1 wins");
             yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene("GooCutScene"); 
+            SceneManager.LoadScene("HueCutScene"); 
         }
         else if(PartyModeManager.player2WinPoints == PartyModeManager.numToWin)
         {
             Debug.Log("Player 2 wins");
             yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene("HueCutScene");
+            SceneManager.LoadScene("GooCutScene");
         }
         else
         {
@@ -175,13 +175,13 @@ public class ScoreScreenManager : MonoBehaviour
         {
             Debug.Log("Player 1 wins");
             yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene("GooCutScene");
+            SceneManager.LoadScene("HueCutScene");
         }
         else if (PartyModeManager.player2WinPoints == PartyModeManager.numToWin)
         {
             Debug.Log("Player 2 wins");
             yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene("HueCutScene");
+            SceneManager.LoadScene("GooCutScene");
         }
         else
         {
