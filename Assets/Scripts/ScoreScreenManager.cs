@@ -74,6 +74,13 @@ public class ScoreScreenManager : MonoBehaviour
             PartyModeManager.player1WinPoints++;
         else if (winner == 2)
             PartyModeManager.player2WinPoints++;
+        else if (winner ==3)
+        {
+            PartyModeManager.player1WinPoints++;
+            PartyModeManager.player2WinPoints++;
+
+            StartCoroutine(TieMove(moveDuration)); 
+        }
 
         StartCoroutine(MoveSnail(winner, moveDuration));
         
@@ -117,12 +124,70 @@ public class ScoreScreenManager : MonoBehaviour
 
         GooIsStill();
         HueIsStill();
-        PopUpBtn(); 
 
         // Snap to final position
         transform.position = targetPosition;
+
+        if (PartyModeManager.player1WinPoints == PartyModeManager.numToWin)
+        {
+            Debug.Log("Player 1 wins");
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene("GooCutScene"); 
+        }
+        else if(PartyModeManager.player2WinPoints == PartyModeManager.numToWin)
+        {
+            Debug.Log("Player 2 wins");
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene("HueCutScene");
+        }
+        else
+        {
+            PopUpBtn();
+        }
     }
 
+    IEnumerator TieMove(float duration)
+    {
+        Transform snail = null;
+        Vector3 targetPosition1 = Vector3.Lerp(startP1.position, endP1.position, PartyModeManager.player1WinPoints / (float)PartyModeManager.numToWin);
+        Vector3 targetPosition2 = Vector3.Lerp(startP2.position, endP2.position, PartyModeManager.player2WinPoints / (float)PartyModeManager.numToWin);
+
+        HueIsMoving();
+        GooIsMoving(); 
+
+        Vector3 startPosition1 = snailP1.position;
+        Vector3 startPosition2 = snailP2.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            // Moves along a spherical arc between the two positions
+            snailP1.position = Vector3.Lerp(startPosition1, targetPosition1, elapsedTime / duration);
+            snailP2.position = Vector3.Lerp(startPosition2, targetPosition2, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        GooIsStill();
+        HueIsStill();
+
+        if (PartyModeManager.player1WinPoints == PartyModeManager.numToWin)
+        {
+            Debug.Log("Player 1 wins");
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene("GooCutScene");
+        }
+        else if (PartyModeManager.player2WinPoints == PartyModeManager.numToWin)
+        {
+            Debug.Log("Player 2 wins");
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene("HueCutScene");
+        }
+        else
+        {
+            PopUpBtn();
+        }
+    }
     public void GooIsMoving()
     {
         GooController.SetBool("isMoving", true);

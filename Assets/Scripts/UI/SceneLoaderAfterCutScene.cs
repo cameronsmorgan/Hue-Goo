@@ -1,15 +1,15 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
+//using UnityEngine;
+//using UnityEngine.SceneManagement;
 
-public class SceneLoaderAfterCutscene : MonoBehaviour
-{
-    public static string nextSceneName;
+//public class SceneLoaderAfterCutscene : MonoBehaviour
+//{
+//    public static string nextSceneName;
 
-    public void LoadNextScene()
-    {
-        if (!string.IsNullOrEmpty(nextSceneName))
-        {
-            SceneManager.LoadScene(nextSceneName);
-        }
-    }
-}
+//    public void LoadNextScene()
+//    {
+//        if (!string.IsNullOrEmpty(nextSceneName))
+//        {
+//            SceneManager.LoadScene(nextSceneName);
+//        }
+//    }
+//}

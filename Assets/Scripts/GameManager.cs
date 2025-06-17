@@ -72,18 +72,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // ✅ Win logic when timer ends
+    //Win logic when timer ends
     private void EvaluateFlowerWinner()
     {
         if (player1Score > player2Score)
         {
             Debug.Log("Player 1 Wins!");
-            SceneManager.LoadScene("HueCutScene");
+            PartyModeManager.lastRoundWinner = 2; 
+            SceneManager.LoadScene("UltimateWinner");
         }
         else if (player2Score > player1Score)
         {
             Debug.Log("Player 2 Wins!");
-            SceneManager.LoadScene("GooCutScene");
+            PartyModeManager.lastRoundWinner = 1;
+            SceneManager.LoadScene("UltimateWinner");
         }
         else
         {

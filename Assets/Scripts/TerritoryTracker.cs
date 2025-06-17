@@ -72,16 +72,18 @@ public class TerritoryTracker : MonoBehaviour
 
         if (redTiles > blueTiles)
         {
-            SceneManager.LoadScene("HueCutScene");
+            PartyModeManager.lastRoundWinner = 2;
+            SceneManager.LoadScene("UltimateWinner");
         }
         else if (blueTiles > redTiles)
         {
-            SceneManager.LoadScene("GooCutScene");
+            PartyModeManager.lastRoundWinner = 1;
+            SceneManager.LoadScene("UltimateWinner");
         }
         else
         {
-            // Optional: Tie scene or fallback
-            Debug.Log("It's a tie! Add a tie scene if you want.");
+            PartyModeManager.lastRoundWinner = 3;
+            SceneManager.LoadScene("UltimateWinner");
         }
     }
 }

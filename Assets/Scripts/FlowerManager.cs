@@ -253,11 +253,20 @@ public class FlowerManager : MonoBehaviour
     void EndGame()
     {
         if (player1Score > player2Score)
-            SceneManager.LoadScene("HueCutScene");
+        {
+            PartyModeManager.lastRoundWinner = 2;
+            SceneManager.LoadScene("UltimateWinner");
+        }
         else if (player2Score > player1Score)
-            SceneManager.LoadScene("GooCutScene");
+        {
+            PartyModeManager.lastRoundWinner = 1;
+            SceneManager.LoadScene("UltimateWinner");
+        }
         else
-            SceneManager.LoadScene("TieCutScene");
+        {
+            PartyModeManager.lastRoundWinner = 3;
+            SceneManager.LoadScene("UltimateWinner");
+        }
     }
 
     void RevealScoredFlower(Vector3Int pos, Color color)

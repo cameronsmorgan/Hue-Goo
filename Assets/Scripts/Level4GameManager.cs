@@ -91,20 +91,20 @@ public class Level4GameManager : MonoBehaviour
             if (player1Score > player2Score)
             {
                 result = "Player 1 Wins!";
-                PartyModeManager.lastRoundWinner = 1;
-                SceneManager.LoadScene("HueCutScene"); // 👈 Load Hue win scene
+                PartyModeManager.lastRoundWinner = 2;
+                SceneManager.LoadScene("UltimateWinner");
             }
             else if (player2Score > player1Score)
             {
                 result = "Player 2 Wins!";
-                PartyModeManager.lastRoundWinner = 2;
-                SceneManager.LoadScene("GooCutScene"); // 👈 Load Goo win scene
+                PartyModeManager.lastRoundWinner = 1;
+                SceneManager.LoadScene("UltimateWinner");
             }
             else
             {
                 result = "It's a Tie!";
-                PartyModeManager.lastRoundWinner = 0;
-                SceneManager.LoadScene("TieCutScene"); // 👈 Load Tie scene
+                PartyModeManager.lastRoundWinner = 3;
+                SceneManager.LoadScene("UltimateWinner");
             }
 
             // Optional: Show result before loading if desired
