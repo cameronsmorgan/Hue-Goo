@@ -330,9 +330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'BACK
-
-'
+  m_text: SKIP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c3731ccf856806c4c9bce8c3f81cb9c6, type: 2}
   m_sharedMaterial: {fileID: -4082074628598058682, guid: c3731ccf856806c4c9bce8c3f81cb9c6, type: 2}
@@ -643,6 +641,8 @@ GameObject:
   - component: {fileID: 801014988}
   - component: {fileID: 801014987}
   - component: {fileID: 801014986}
+  - component: {fileID: 801014990}
+  - component: {fileID: 801014989}
   m_Layer: 5
   m_Name: '7 Games '
   m_TagString: Untagged
@@ -776,6 +776,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801014984}
   m_CullTransparentMesh: 1
+--- !u!114 &801014989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801014984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aacc904bb0ad9d46bf6745dee27edb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 10
+  pulseAmount: 0.03
+--- !u!114 &801014990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801014984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3468791128eabd4499c3e29070a63929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptToToggle: {fileID: 801014989}
 --- !u!1 &862458536
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,9 +860,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1 GAME
-
-'
+  m_text: "BEST OF 1 \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c3731ccf856806c4c9bce8c3f81cb9c6, type: 2}
   m_sharedMaterial: {fileID: -4082074628598058682, guid: c3731ccf856806c4c9bce8c3f81cb9c6, type: 2}
@@ -926,6 +951,8 @@ GameObject:
   - component: {fileID: 890011377}
   - component: {fileID: 890011376}
   - component: {fileID: 890011375}
+  - component: {fileID: 890011379}
+  - component: {fileID: 890011378}
   m_Layer: 5
   m_Name: '3 Games '
   m_TagString: Untagged
@@ -1059,6 +1086,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890011373}
   m_CullTransparentMesh: 1
+--- !u!114 &890011378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890011373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aacc904bb0ad9d46bf6745dee27edb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 10
+  pulseAmount: 0.03
+--- !u!114 &890011379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890011373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3468791128eabd4499c3e29070a63929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptToToggle: {fileID: 890011378}
 --- !u!1 &891085409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1227,8 @@ GameObject:
   - component: {fileID: 918515768}
   - component: {fileID: 918515767}
   - component: {fileID: 918515766}
+  - component: {fileID: 918515770}
+  - component: {fileID: 918515769}
   m_Layer: 5
   m_Name: '1 Game '
   m_TagString: Untagged
@@ -1306,6 +1362,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918515764}
   m_CullTransparentMesh: 1
+--- !u!114 &918515769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918515764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aacc904bb0ad9d46bf6745dee27edb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 10
+  pulseAmount: 0.03
+--- !u!114 &918515770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918515764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3468791128eabd4499c3e29070a63929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptToToggle: {fileID: 918515769}
 --- !u!1 &1042498533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1446,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "7 GAMES \n"
+  m_text: 'BEST OF 7
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c3731ccf856806c4c9bce8c3f81cb9c6, type: 2}
   m_sharedMaterial: {fileID: -4082074628598058682, guid: c3731ccf856806c4c9bce8c3f81cb9c6, type: 2}
@@ -1499,7 +1584,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "5 GAMES \n"
+  m_text: 'BEST OF 5
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c3731ccf856806c4c9bce8c3f81cb9c6, type: 2}
   m_sharedMaterial: {fileID: -4082074628598058682, guid: c3731ccf856806c4c9bce8c3f81cb9c6, type: 2}
@@ -1590,6 +1677,8 @@ GameObject:
   - component: {fileID: 1247244784}
   - component: {fileID: 1247244783}
   - component: {fileID: 1247244782}
+  - component: {fileID: 1247244786}
+  - component: {fileID: 1247244785}
   m_Layer: 5
   m_Name: '5 Games '
   m_TagString: Untagged
@@ -1723,6 +1812,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247244780}
   m_CullTransparentMesh: 1
+--- !u!114 &1247244785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247244780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aacc904bb0ad9d46bf6745dee27edb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 10
+  pulseAmount: 0.03
+--- !u!114 &1247244786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247244780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3468791128eabd4499c3e29070a63929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptToToggle: {fileID: 1247244785}
 --- !u!1 &1321889285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,8 +2157,9 @@ MonoBehaviour:
   - Race5
   - Race6
   memory:
-  - 'Memory '
+  - 'Memory1 '
   - Memory2
+  - Memory3
 --- !u!4 &1778749582
 Transform:
   m_ObjectHideFlags: 0
@@ -2115,7 +2232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '3 GAMES '
+  m_text: BEST OF 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c3731ccf856806c4c9bce8c3f81cb9c6, type: 2}
   m_sharedMaterial: {fileID: -4082074628598058682, guid: c3731ccf856806c4c9bce8c3f81cb9c6, type: 2}

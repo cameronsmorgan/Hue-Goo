@@ -31,11 +31,11 @@ public class ScoreScreenManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        PartyModeManager.player1WinPoints = 0;
-        PartyModeManager.player2WinPoints = 0;
-        PartyModeManager.numToWin = 3;
+        //PartyModeManager.player1WinPoints = 0;
+        //PartyModeManager.player2WinPoints = 0;
+        //PartyModeManager.numToWin = 3;
 
-        PartyModeManager.lastRoundWinner = 1;
+        //PartyModeManager.lastRoundWinner = 1;
         SetSnailPositions();
 
         MoveRoundWinner();

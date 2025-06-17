@@ -59,6 +59,8 @@ public class PartyModeManager : MonoBehaviour
         player2WinPoints = 0;
         lastRoundWinner = 0;
 
+        Debug.Log(numToWin); 
+
 
         while (toPlay.Count != n)
         {
@@ -77,6 +79,14 @@ public class PartyModeManager : MonoBehaviour
     {
         //toPlay.Clear();
         //populateToPlay(n);
+        toPlay = new List<string>();
+        numRounds = n;
+        numToWin = Mathf.CeilToInt(n / 2f);
+        player1WinPoints = 0;
+        player2WinPoints = 0;
+        lastRoundWinner = 0;
+
+        Debug.Log(numToWin);
 
         LevelTypes(n);
     }

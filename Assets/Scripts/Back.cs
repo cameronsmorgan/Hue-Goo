@@ -10,6 +10,8 @@ public class Back : MonoBehaviour
 
     public void load()
     {
-        SceneManager.LoadScene("PartyMode");
+        PartyModeManager.lastRoundWinner = Random.Range(1, 3); // Returns 1 or 2
+        SceneManager.LoadScene("UltimateWinner");
+
     }
 }
