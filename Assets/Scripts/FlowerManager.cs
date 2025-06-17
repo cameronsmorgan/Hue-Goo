@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FlowerManager : MonoBehaviour
 {
@@ -13,10 +14,6 @@ public class FlowerManager : MonoBehaviour
     public float revealTime = 5f;
     public float paintTime = 20f;
     public float totalGameTime = 60f;
-
-    private List<Vector3Int> flowerPositions = new List<Vector3Int>();
-    private Dictionary<Vector3Int, GameObject> spawnedFlowers = new Dictionary<Vector3Int, GameObject>();
-    private HashSet<Vector3Int> flowersScored = new HashSet<Vector3Int>();
 
     private float elapsedGameTime = 0f;
 
@@ -29,9 +26,25 @@ public class FlowerManager : MonoBehaviour
     public Text player1ScoreText;
     public Text player2ScoreText;
 
+    [Header("Timer UI")]
+    public Text timerText;
+
     [Header("Audio")]
     public AudioClip flowerCollectSound;
+    public AudioClip tickingSound;
     private AudioSource audioSource;
+
+    [Header("Camera Shake")]
+    public Transform cameraTransform;
+    public float shakeIntensity = 0.1f;
+    public float shakeDuration = 0.2f;
+
+    private List<Vector3Int> flowerPositions = new List<Vector3Int>();
+    private Dictionary<Vector3Int, GameObject> spawnedFlowers = new Dictionary<Vector3Int, GameObject>();
+    private HashSet<Vector3Int> flowersScored = new HashSet<Vector3Int>();
+
+    private bool tickingStarted = false;
+    private Vector3 originalCamPos;
 
     private enum GamePhase { Reveal, Paint, Wait }
     private GamePhase currentPhase = GamePhase.Wait;
@@ -42,7 +55,13 @@ public class FlowerManager : MonoBehaviour
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
 
+        if (cameraTransform == null)
+            cameraTransform = Camera.main.transform;
+
+        originalCamPos = cameraTransform.position;
+
         StartCoroutine(GameLoop());
+        StartCoroutine(UpdateTimerDisplay());
         UpdateScoreUI();
     }
 
@@ -101,6 +120,59 @@ public class FlowerManager : MonoBehaviour
         EndGame();
     }
 
+    IEnumerator UpdateTimerDisplay()
+    {
+        float timeLeft = totalGameTime;
+
+        while (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+
+            if (timerText != null)
+            {
+                int seconds = Mathf.CeilToInt(timeLeft);
+                timerText.text = seconds.ToString();
+
+                // Change color when < 10 seconds
+                if (seconds <= 10)
+                {
+                    timerText.color = Color.red;
+
+                    if (!tickingStarted && tickingSound != null)
+                    {
+                        tickingStarted = true;
+                        audioSource.loop = true;
+                        audioSource.clip = tickingSound;
+                        audioSource.Play();
+                    }
+
+                    // Shake camera slightly
+                    StartCoroutine(ShakeCamera());
+                }
+            }
+
+            yield return null;
+        }
+
+        if (audioSource.loop)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+        }
+
+        timerText.text = "0";
+    }
+
+    IEnumerator ShakeCamera()
+    {
+        Vector3 randomOffset = Random.insideUnitSphere * shakeIntensity;
+        randomOffset.z = 0f; // Prevent Z movement
+
+        cameraTransform.position = originalCamPos + randomOffset;
+        yield return new WaitForSeconds(shakeDuration);
+        cameraTransform.position = originalCamPos;
+    }
+
     void SetPlayerMovement(bool canMove)
     {
         if (player1 != null) player1.canMove = canMove;
@@ -149,18 +221,11 @@ public class FlowerManager : MonoBehaviour
             if (paintedTile == null) continue;
 
             string tileName = paintedTile.name.ToLower();
-            if (tileName.Contains("red"))
-            {
-                player1Score++;
-            }
-            else if (tileName.Contains("blue"))
-            {
-                player2Score++;
-            }
+            if (tileName.Contains("red")) player1Score++;
+            else if (tileName.Contains("blue")) player2Score++;
 
             GameObject flower = spawnedFlowers[pos];
             SpriteRenderer sr = flower.GetComponent<SpriteRenderer>();
-
             sr.enabled = true;
             sr.color = tileName.Contains("red") ? Color.red : Color.blue;
             sr.sortingOrder = 10;
@@ -187,13 +252,12 @@ public class FlowerManager : MonoBehaviour
 
     void EndGame()
     {
-        Debug.Log($"Game Over! Player 1: {player1Score}, Player 2: {player2Score}");
         if (player1Score > player2Score)
-            Debug.Log("Player 1 Wins!");
+            SceneManager.LoadScene("HueCutScene");
         else if (player2Score > player1Score)
-            Debug.Log("Player 2 Wins!");
+            SceneManager.LoadScene("GooCutScene");
         else
-            Debug.Log("It's a Tie!");
+            SceneManager.LoadScene("TieCutScene");
     }
 
     void RevealScoredFlower(Vector3Int pos, Color color)
@@ -220,7 +284,6 @@ public class FlowerManager : MonoBehaviour
     {
         if (player1ScoreText != null)
             player1ScoreText.text = "Player 1: " + player1Score;
-
         if (player2ScoreText != null)
             player2ScoreText.text = "Player 2: " + player2Score;
     }

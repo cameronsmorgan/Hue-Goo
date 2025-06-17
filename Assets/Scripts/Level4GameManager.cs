@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -92,25 +92,30 @@ public class Level4GameManager : MonoBehaviour
             {
                 result = "Player 1 Wins!";
                 PartyModeManager.lastRoundWinner = 1;
+                SceneManager.LoadScene("HueCutScene"); // 👈 Load Hue win scene
             }
             else if (player2Score > player1Score)
             {
                 result = "Player 2 Wins!";
-                PartyModeManager.lastRoundWinner = 1;
+                PartyModeManager.lastRoundWinner = 2;
+                SceneManager.LoadScene("GooCutScene"); // 👈 Load Goo win scene
             }
             else
             {
                 result = "It's a Tie!";
                 PartyModeManager.lastRoundWinner = 0;
+                SceneManager.LoadScene("TieCutScene"); // 👈 Load Tie scene
             }
 
-            RaceUIManager.Instance.ShowFinalResult(result);
+            // Optional: Show result before loading if desired
+            Debug.Log(result);
         }
         else
         {
             LoadNextRoundScene();
         }
     }
+
 
     public void LoadNextRoundScene()
     {
@@ -151,4 +156,5 @@ public class Level4GameManager : MonoBehaviour
         player2Score = 0;
         currentRound = 0;
     }
+
 }
