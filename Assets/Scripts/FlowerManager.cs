@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class FlowerManager : MonoBehaviour
 {
@@ -15,9 +16,9 @@ public class FlowerManager : MonoBehaviour
 
     private List<Vector3Int> flowerPositions = new List<Vector3Int>();
     private Dictionary<Vector3Int, GameObject> spawnedFlowers = new Dictionary<Vector3Int, GameObject>();
+    private HashSet<Vector3Int> flowersScored = new HashSet<Vector3Int>();
 
     private float elapsedGameTime = 0f;
-    private float roundTimer = 0f;
 
     public int player1Score = 0;
     public int player2Score = 0;
@@ -25,72 +26,86 @@ public class FlowerManager : MonoBehaviour
     public PlayerMovement player1;
     public PlayerMovement player2;
 
+    public Text player1ScoreText;
+    public Text player2ScoreText;
+
+    [Header("Audio")]
+    public AudioClip flowerCollectSound;
+    private AudioSource audioSource;
+
     private enum GamePhase { Reveal, Paint, Wait }
     private GamePhase currentPhase = GamePhase.Wait;
-    private HashSet<Vector3Int> flowersScored = new HashSet<Vector3Int>();
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
         StartCoroutine(GameLoop());
+        UpdateScoreUI();
     }
 
     void Update()
     {
-    if (currentPhase != GamePhase.Paint) return;
+        if (currentPhase != GamePhase.Paint) return;
 
-    foreach (var pos in flowerPositions)
-    {
-        if (flowersScored.Contains(pos)) continue;
-
-        TileBase paintedTile = paintableTilemap.GetTile(pos);
-        if (paintedTile == null) continue;
-
-        string tileName = paintedTile.name.ToLower();
-
-        if (tileName.Contains("red"))
+        foreach (var pos in flowerPositions)
         {
-            player1Score++;
-            RevealScoredFlower(pos, Color.red);
-        }
-        else if (tileName.Contains("blue"))
-        {
-            player2Score++;
-            RevealScoredFlower(pos, Color.blue);
+            if (flowersScored.Contains(pos)) continue;
+
+            TileBase paintedTile = paintableTilemap.GetTile(pos);
+            if (paintedTile == null) continue;
+
+            string tileName = paintedTile.name.ToLower();
+
+            if (tileName.Contains("red"))
+            {
+                player1Score++;
+                RevealScoredFlower(pos, Color.red);
+                PlayFlowerSound();
+            }
+            else if (tileName.Contains("blue"))
+            {
+                player2Score++;
+                RevealScoredFlower(pos, Color.blue);
+                PlayFlowerSound();
+            }
+
+            UpdateScoreUI();
         }
     }
-    }
 
-
-   IEnumerator GameLoop()
-   {
-    while (elapsedGameTime < totalGameTime)
+    IEnumerator GameLoop()
     {
-        SpawnFlowers();
+        while (elapsedGameTime < totalGameTime)
+        {
+            SpawnFlowers();
 
-        currentPhase = GamePhase.Reveal;
-        SetPlayerMovement(false); // 🚫 DISABLE movement
-        ShowFlowers(true);
-        yield return new WaitForSeconds(revealTime);
+            currentPhase = GamePhase.Reveal;
+            SetPlayerMovement(false);
+            ShowFlowers(true);
+            yield return new WaitForSeconds(revealTime);
 
-        currentPhase = GamePhase.Paint;
-        ShowFlowers(false);
-        SetPlayerMovement(true); // ✅ ENABLE movement
-        yield return new WaitForSeconds(paintTime);
+            currentPhase = GamePhase.Paint;
+            ShowFlowers(false);
+            SetPlayerMovement(true);
+            yield return new WaitForSeconds(paintTime);
 
-        CheckPaintedFlowers();
-        CleanupFlowers();
+            CheckPaintedFlowers();
+            CleanupFlowers();
 
-        elapsedGameTime += revealTime + paintTime;
+            elapsedGameTime += revealTime + paintTime;
+        }
+
+        EndGame();
     }
 
-    EndGame();
-   }
-
-void SetPlayerMovement(bool canMove)
-{
-    if (player1 != null) player1.canMove = canMove;
-    if (player2 != null) player2.canMove = canMove;
-}
+    void SetPlayerMovement(bool canMove)
+    {
+        if (player1 != null) player1.canMove = canMove;
+        if (player2 != null) player2.canMove = canMove;
+    }
 
     void SpawnFlowers()
     {
@@ -144,19 +159,17 @@ void SetPlayerMovement(bool canMove)
             }
 
             GameObject flower = spawnedFlowers[pos];
-SpriteRenderer sr = flower.GetComponent<SpriteRenderer>();
+            SpriteRenderer sr = flower.GetComponent<SpriteRenderer>();
 
-// Make it visible and change color
-sr.enabled = true;
-sr.color = tileName.Contains("red") ? Color.red : Color.blue;
+            sr.enabled = true;
+            sr.color = tileName.Contains("red") ? Color.red : Color.blue;
+            sr.sortingOrder = 10;
 
-// Ensure it renders above the slime
-sr.sortingOrder = 10; // Higher number = renders on top
+            Vector3 offset = new Vector3(0, 0, -0.1f);
+            flower.transform.position = grassTilemap.GetCellCenterWorld(pos) + offset;
 
-// Optional: Slight Z-offset to appear above ground visually
-Vector3 offset = new Vector3(0, 0, -0.1f);
-flower.transform.position = grassTilemap.GetCellCenterWorld(pos) + offset;
-
+            PlayFlowerSound();
+            UpdateScoreUI();
         }
     }
 
@@ -185,14 +198,30 @@ flower.transform.position = grassTilemap.GetCellCenterWorld(pos) + offset;
 
     void RevealScoredFlower(Vector3Int pos, Color color)
     {
-    if (spawnedFlowers.TryGetValue(pos, out GameObject flower))
+        if (spawnedFlowers.TryGetValue(pos, out GameObject flower))
+        {
+            SpriteRenderer sr = flower.GetComponent<SpriteRenderer>();
+            sr.color = color;
+            sr.enabled = true;
+        }
+
+        flowersScored.Add(pos);
+    }
+
+    void PlayFlowerSound()
     {
-        SpriteRenderer sr = flower.GetComponent<SpriteRenderer>();
-        sr.color = color;
-        sr.enabled = true;
+        if (flowerCollectSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(flowerCollectSound);
+        }
     }
 
-    flowersScored.Add(pos);
-    }
+    void UpdateScoreUI()
+    {
+        if (player1ScoreText != null)
+            player1ScoreText.text = "Player 1: " + player1Score;
 
+        if (player2ScoreText != null)
+            player2ScoreText.text = "Player 2: " + player2Score;
+    }
 }

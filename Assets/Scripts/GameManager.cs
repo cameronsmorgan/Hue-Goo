@@ -11,10 +11,18 @@ public class GameManager : MonoBehaviour
     public Text player1ScoreText;
     public Text player2ScoreText;
 
+    [Header("Audio")]
+    public AudioClip flowerCollectSound;  // Drag your flower sound clip here
+    private AudioSource audioSource;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void Start()
@@ -35,6 +43,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Player 2 Score: " + player2Score);
         }
 
+        PlayFlowerSound();
         UpdateScoreUI();
     }
 
@@ -45,5 +54,13 @@ public class GameManager : MonoBehaviour
 
         if (player2ScoreText != null)
             player2ScoreText.text = "Player 2: " + player2Score;
+    }
+
+    private void PlayFlowerSound()
+    {
+        if (flowerCollectSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(flowerCollectSound);
+        }
     }
 }
