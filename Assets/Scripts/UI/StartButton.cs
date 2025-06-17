@@ -6,6 +6,6 @@ public class StartButton : MonoBehaviour
     // Call this method from your Play Button's OnClick()
     public void LoadLevel1()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Tutorial");
     }
 }
