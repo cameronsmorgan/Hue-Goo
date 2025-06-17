@@ -53,16 +53,20 @@ public class PetalFlower : MonoBehaviour
             petals[coloredPetals].color = targetColor;
             coloredPetals++;
 
+            // Immediately check if the flower is complete
+            if (coloredPetals >= petals.Count)
+            {
+                isCompleted = true;
+                GameManager.Instance.AwardPoint(currentPlayer);
+                yield break; // Exit after awarding point
+            }
+
             yield return new WaitForSeconds(petalChangeInterval);
 
-            // Interrupt check
+            // Interrupt check (in case something resets mid-process)
             if (currentPlayer == "" || isCompleted)
                 yield break;
         }
-
-        // All petals colored — complete the flower
-        isCompleted = true;
-        GameManager.Instance.AwardPoint(currentPlayer);
     }
 
     private void ResetPetals()
