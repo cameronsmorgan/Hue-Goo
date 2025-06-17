@@ -239,6 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 775108924}
   - component: {fileID: 775108923}
+  - component: {fileID: 775108925}
   m_Layer: 0
   m_Name: Hue
   m_TagString: Untagged
@@ -316,6 +317,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!95 &775108925
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775108922}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7775e29e6b7e5534e8becdafd2963eac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &776926824
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +680,8 @@ MonoBehaviour:
   startP2: {fileID: 1735082770}
   endP2: {fileID: 654691718}
   moveDuration: 4
+  GooController: {fileID: 2032945842}
+  HueController: {fileID: 775108925}
 --- !u!4 &1847790006
 Transform:
   m_ObjectHideFlags: 0
@@ -682,6 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032945841}
   - component: {fileID: 2032945840}
+  - component: {fileID: 2032945842}
   m_Layer: 0
   m_Name: 'Goo '
   m_TagString: Untagged
@@ -759,6 +785,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!95 &2032945842
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032945839}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47770f77ecf0003418e725beb8cd2ef1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2096390786
 GameObject:
   m_ObjectHideFlags: 0

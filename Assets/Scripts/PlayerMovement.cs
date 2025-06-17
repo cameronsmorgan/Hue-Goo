@@ -3,10 +3,10 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveCooldown = 0.2f; 
+    public float moveCooldown = 0.2f;
     public string horizontalInput = "Horizontal";
     public string verticalInput = "Vertical";
-    public LayerMask collisionLayer; 
+    public LayerMask collisionLayer;
 
     private float timer;
     private bool isMoving = false;
@@ -17,54 +17,55 @@ public class PlayerMovement : MonoBehaviour
     private bool isBoosted = false;
     public bool canMove = true;
 
-
     void Start()
     {
         targetPosition = transform.position;
         timer = 0f;
     }
 
-void Update()
-{
-    if (!canMove) return; // << Block input if not allowed
-
-    timer += Time.deltaTime;
-
-    if (!isMoving && timer >= moveCooldown)
+    void Update()
     {
-        int moveX = (int)Input.GetAxisRaw(horizontalInput);
-        int moveY = (int)Input.GetAxisRaw(verticalInput);
+        if (!canMove) return;
 
-        if (moveX != 0)
-            moveY = 0;
+        timer += Time.deltaTime;
 
-        moveDirection = new Vector2Int(moveX, moveY);
-
-        if (moveDirection != Vector2Int.zero)
+        if (!isMoving && timer >= moveCooldown)
         {
-            Vector3 proposedPosition = targetPosition + new Vector3(moveDirection.x * 0.5f, moveDirection.y * 0.5f, 0f);
+            int moveX = (int)Input.GetAxisRaw(horizontalInput);
+            int moveY = (int)Input.GetAxisRaw(verticalInput);
 
-            if (!IsBlocked(proposedPosition))
+            if (moveX != 0)
+                moveY = 0;
+
+            moveDirection = new Vector2Int(moveX, moveY);
+
+            if (moveDirection != Vector2Int.zero)
             {
-                targetPosition = proposedPosition;
-                isMoving = true;
-                timer = 0f;
+                Vector3 proposedPosition = targetPosition + new Vector3(moveDirection.x * 0.5f, moveDirection.y * 0.5f, 0f);
+
+                if (!IsBlocked(proposedPosition))
+                {
+                    targetPosition = proposedPosition;
+                    isMoving = true;
+                    timer = 0f;
+
+                    // Rotate to face the direction of movement
+                    RotateTowardsDirection(moveDirection);
+                }
+            }
+        }
+
+        if (isMoving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, 20f * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+            {
+                transform.position = targetPosition;
+                isMoving = false;
             }
         }
     }
-
-    if (isMoving)
-    {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, 20f * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
-        {
-            transform.position = targetPosition;
-            isMoving = false;
-        }
-    }
-}
-
 
     bool IsBlocked(Vector3 target)
     {
@@ -78,7 +79,7 @@ void Update()
         {
             originalMoveCooldown = moveCooldown;
             moveCooldown *= multiplier;
-            isBoosted= true;
+            isBoosted = true;
             StartCoroutine(RemoveSpeedBoostAfterDelay(duration));
         }
     }
@@ -87,6 +88,22 @@ void Update()
     {
         yield return new WaitForSeconds(delay);
         moveCooldown = originalMoveCooldown;
-        isBoosted= false;
+        isBoosted = false;
+    }
+
+    //rotate 
+    private void RotateTowardsDirection(Vector2Int direction)
+    {
+        if (direction == Vector2Int.zero) return;
+
+        // If your sprite’s base facing direction is UP (common in top-down sprites)
+        if (direction == Vector2Int.up)
+            transform.rotation = Quaternion.Euler(0, 0, 0);       // Face up
+        else if (direction == Vector2Int.down)
+            transform.rotation = Quaternion.Euler(0, 0, 180);     // Face down
+        else if (direction == Vector2Int.left)
+            transform.rotation = Quaternion.Euler(0, 0, 90);      // Face left
+        else if (direction == Vector2Int.right)
+            transform.rotation = Quaternion.Euler(0, 0, -90);     // Face right
     }
 }

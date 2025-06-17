@@ -17,6 +17,9 @@ public class ScoreScreenManager : MonoBehaviour
     [Header("Animation Stuff")]
     [SerializeField] float moveDuration;
 
+    public Animator GooController;
+    public Animator HueController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,9 +33,10 @@ public class ScoreScreenManager : MonoBehaviour
         MoveRoundWinner();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
+        GooController.SetBool("isMoving", false);
+        HueController.SetBool("isMoving", false);
     }
 
     void SetSnailPositions()
@@ -68,10 +72,14 @@ public class ScoreScreenManager : MonoBehaviour
             case 1:
                 snail = snailP1;
                 targetPosition = Vector3.Lerp(startP1.position, endP1.position, PartyModeManager.player1WinPoints / (float)PartyModeManager.numToWin);
+                HueIsMoving();
+                GooIsStill();
                 break;
             case 2:
                 snail = snailP2;
                 targetPosition = Vector3.Lerp(startP2.position, endP2.position, PartyModeManager.player2WinPoints / (float)PartyModeManager.numToWin);
+                GooIsMoving();
+                HueIsStill();
                 break;
             default:
                 targetPosition = Vector3.zero;
@@ -93,5 +101,25 @@ public class ScoreScreenManager : MonoBehaviour
 
         // Snap to final position
         transform.position = targetPosition;
+    }
+
+    public void GooIsMoving()
+    {
+        GooController.SetBool("isMoving", true);
+    }
+
+    public void GooIsStill()
+    {
+        GooController.SetBool("isMoving", false);
+    }
+
+    public void HueIsMoving()
+    {
+        HueController.SetBool("isMoving", true);
+    }
+
+    public void HueIsStill()
+    {
+        HueController.SetBool("isMoving", false);
     }
 }
