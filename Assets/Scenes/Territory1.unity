@@ -7567,7 +7567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93543456ee62f74292f9c364234c016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 20
+  startTime: 60
   timerText: {fileID: 1187015386}
   tickingSound: {fileID: 8300000, guid: e3606b4d90c8c3348adfa9cbe8b5b681, type: 3}
   warningSound: {fileID: 8300000, guid: e3606b4d90c8c3348adfa9cbe8b5b681, type: 3}

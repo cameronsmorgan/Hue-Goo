@@ -1,44 +1,44 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
 public class CountdownTimer : MonoBehaviour
 {
     [Header("Timer Settings")]
-    public float startTime = 60f;         // Time in seconds
+    public float startTime = 60f;
     private float currentTime;
-    public Text timerText;                // Assign in the Inspector
+    public Text timerText;
     private bool isRunning = true;
     private bool hasTriggered10Seconds = false;
 
     [Header("Audio Settings")]
-    public AudioClip tickingSound;        // Assign a fast ticking sound
-    public AudioClip warningSound;        // Assign an urgent warning sound
+    public AudioClip tickingSound;
+    public AudioClip warningSound;
     [Range(0, 1)] public float volume = 0.7f;
     private AudioSource audioSource;
 
     [Header("Screen Shake Settings")]
-    public float shakeDuration = 2f;      // How long the shake lasts
-    public float shakeMagnitude = 0.2f;   // How intense the shake is
+    public float shakeDuration = 2f;
+    public float shakeMagnitude = 0.2f;
     private Camera mainCamera;
     private Vector3 originalCameraPos;
+
+    // ✅ Timer end event for external listeners (like GameManager)
+    public delegate void TimerEndAction();
+    public event TimerEndAction OnTimerEnd;
 
     void Start()
     {
         currentTime = startTime;
         UpdateTimerDisplay();
 
-        // Set up audio source
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.volume = volume;
 
-        // Get main camera reference
         mainCamera = Camera.main;
         if (mainCamera != null)
-        {
             originalCameraPos = mainCamera.transform.localPosition;
-        }
     }
 
     void Update()
@@ -47,7 +47,6 @@ public class CountdownTimer : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
 
-            // Check for 10-second mark
             if (currentTime <= 10f && !hasTriggered10Seconds)
             {
                 hasTriggered10Seconds = true;
@@ -61,20 +60,49 @@ public class CountdownTimer : MonoBehaviour
                 isRunning = false;
                 TimerEnded();
             }
+
             UpdateTimerDisplay();
         }
     }
 
+    // ✅ Called when timer hits 0
+    void TimerEnded()
+    {
+        Debug.Log("Timer ended!");
+
+        if (audioSource != null)
+            audioSource.Stop();
+
+        if (mainCamera != null)
+            mainCamera.transform.localPosition = originalCameraPos;
+
+        // ✅ Notify other scripts
+        OnTimerEnd?.Invoke();
+    }
+
+    // ✅ Update the text display
+    void UpdateTimerDisplay()
+    {
+        int seconds = Mathf.CeilToInt(currentTime);
+        int minutes = seconds / 60;
+        seconds = seconds % 60;
+        timerText.text = $"{minutes:00}:{seconds:00}";
+
+        if (currentTime <= 10f)
+            timerText.color = Color.red;
+        else
+            timerText.color = Color.white;
+    }
+
+    // ✅ Play ticking and warning sounds
     IEnumerator PlayTickingSound()
     {
-        // Play warning sound once
         if (warningSound != null)
         {
             audioSource.PlayOneShot(warningSound);
             yield return new WaitForSeconds(warningSound.length);
         }
 
-        // Play ticking sound in a loop until timer ends
         while (currentTime > 0f && isRunning)
         {
             if (tickingSound != null)
@@ -89,6 +117,7 @@ public class CountdownTimer : MonoBehaviour
         }
     }
 
+    // ✅ Shake the camera for visual feedback
     IEnumerator ShakeCamera()
     {
         if (mainCamera == null) yield break;
@@ -97,7 +126,6 @@ public class CountdownTimer : MonoBehaviour
 
         while (elapsed < shakeDuration && currentTime > 0f)
         {
-            // Random offset for shake effect
             float x = Random.Range(-1f, 1f) * shakeMagnitude;
             float y = Random.Range(-1f, 1f) * shakeMagnitude;
 
@@ -106,50 +134,15 @@ public class CountdownTimer : MonoBehaviour
             yield return null;
         }
 
-        // Reset camera position
         mainCamera.transform.localPosition = originalCameraPos;
     }
 
-    void UpdateTimerDisplay()
-    {
-        int seconds = Mathf.CeilToInt(currentTime);
-        int minutes = seconds / 60;
-        seconds = seconds % 60;
-        timerText.text = $"{minutes:00}:{seconds:00}";
-
-        // Change color when below 10 seconds
-        if (currentTime <= 10f)
-        {
-            timerText.color = Color.red;
-        }
-    }
-
-    void TimerEnded()
-    {
-        Debug.Log("Timer ended!");
-        // Stop any ongoing sound effects
-        if (audioSource != null)
-        {
-            audioSource.Stop();
-        }
-        // Reset camera position
-        if (mainCamera != null)
-        {
-            mainCamera.transform.localPosition = originalCameraPos;
-        }
-    }
-
+    // ✅ Optional pause/resume/reset functionality
     public void SetTimerPaused(bool pause)
     {
         isRunning = !pause;
-        if (pause && audioSource != null)
-        {
-            audioSource.Pause();
-        }
-        else if (!pause && audioSource != null && currentTime <= 10f)
-        {
-            audioSource.UnPause();
-        }
+        if (pause && audioSource != null) audioSource.Pause();
+        else if (!pause && audioSource != null && currentTime <= 10f) audioSource.UnPause();
     }
 
     public void ResetTimer()
@@ -157,18 +150,10 @@ public class CountdownTimer : MonoBehaviour
         currentTime = startTime;
         isRunning = true;
         hasTriggered10Seconds = false;
-        timerText.color = Color.white; // Reset text color
+        timerText.color = Color.white;
         UpdateTimerDisplay();
 
-        // Stop any ongoing sound effects
-        if (audioSource != null)
-        {
-            audioSource.Stop();
-        }
-        // Reset camera position
-        if (mainCamera != null)
-        {
-            mainCamera.transform.localPosition = originalCameraPos;
-        }
+        if (audioSource != null) audioSource.Stop();
+        if (mainCamera != null) mainCamera.transform.localPosition = originalCameraPos;
     }
 }

@@ -7429,11 +7429,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTime: 60
   timerText: {fileID: 1187015386}
-  tickingSound: {fileID: 0}
-  warningSound: {fileID: 0}
+  tickingSound: {fileID: 8300000, guid: e3606b4d90c8c3348adfa9cbe8b5b681, type: 3}
+  warningSound: {fileID: 8300000, guid: e3606b4d90c8c3348adfa9cbe8b5b681, type: 3}
   volume: 0.7
-  shakeDuration: 2
-  shakeMagnitude: 0.2
+  shakeDuration: 10
+  shakeMagnitude: 0.02
 --- !u!1 &345545452
 GameObject:
   m_ObjectHideFlags: 0
