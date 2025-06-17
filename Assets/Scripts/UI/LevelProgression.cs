@@ -47,26 +47,28 @@ public class LevelProgression : MonoBehaviour
     // Method to be called when the "Done" button is clicked
     public void OnDoneButtonClicked()
     {
-        // Option 1: Load next scene by name (set in Inspector)
-        if (!string.IsNullOrEmpty(nextSceneName))
-        {
-            SceneManager.LoadScene(nextSceneName);
-            return;
-        }
+        //// Option 1: Load next scene by name (set in Inspector)
+        //if (!string.IsNullOrEmpty(nextSceneName))
+        //{
+        //    SceneManager.LoadScene(nextSceneName);
+        //    return;
+        //}
 
-        // Option 2: Load next scene by build index
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
+        //// Option 2: Load next scene by build index
+        //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        //int nextSceneIndex = currentSceneIndex + 1;
 
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-        else
-        {
-            Debug.Log("All levels completed! Returning to menu.");
-            SceneManager.LoadScene(0); // Assuming 0 is your menu scene
-        }
+        //if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        //{
+        //    SceneManager.LoadScene(nextSceneIndex);
+        //}
+        //else
+        //{
+        //    Debug.Log("All levels completed! Returning to menu.");
+        //    SceneManager.LoadScene(0); // Assuming 0 is your menu scene
+        //}
+
+        SceneManager.LoadScene("PartyMode");
     }
 
     public void ShowHelpPanel()
