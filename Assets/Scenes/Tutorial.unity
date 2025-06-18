@@ -6674,7 +6674,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.248, y: 0.751, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6693,7 +6693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintTilemap: {fileID: 345545455}
   redPaintTile: {fileID: 0}
-  bluePaintTile: {fileID: 11400000, guid: c380abf32e6b843ab98db2bafd621f06, type: 2}
+  bluePaintTile: {fileID: 11400000, guid: fc6c01e443dc099478dfc1e7ff78001d, type: 2}
   isRed: 0
 --- !u!95 &773037633
 Animator:
@@ -11490,7 +11490,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.247, y: -0.251, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 26b88579c8417b545bf8e7c014cfe785
+guid: 3fbd8dff2a7eef94ea68d290f7fb399b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2768257149592643601
-    second: HueSlime_0
+      213: 6935775255502934166
+    second: HueSlime2_0
   - first:
-      213: -6973465575890549882
-    second: HueSlime_1
+      213: -7930092261704406278
+    second: HueSlime2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HueSlime_0
+      name: HueSlime2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 118a760f533da6620800000000000000
-      internalID: 2768257149592643601
+      spriteID: 690523af8d2d04060800000000000000
+      internalID: 6935775255502934166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HueSlime_1
+      name: HueSlime2_1
       rect:
         serializedVersion: 2
         x: 320
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68301a77106493f90800000000000000
-      internalID: -6973465575890549882
+      spriteID: afae8097a17a2f190800000000000000
+      internalID: -7930092261704406278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HueSlime_2
+      name: HueSlime2_2
       rect:
         serializedVersion: 2
         x: 640
@@ -162,8 +162,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d47a2a786b5249b4caddba3f38f7a86f
-      internalID: -1759086992
+      spriteID: dd8ec751cb94db74fbbbadedc8acfe60
+      internalID: 1056584426
       vertices: []
       indices: 
       edges: []
@@ -172,7 +172,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c794e2af7abcb9c4aad8474b6d599049
+    spriteID: b87e4f4b20d6c454e98091a8ee6c51a0
     internalID: 0
     vertices: []
     indices: 
@@ -182,9 +182,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HueSlime_0: 2768257149592643601
-      HueSlime_1: -6973465575890549882
-      HueSlime_2: -1759086992
+      HueSlime2_0: 6935775255502934166
+      HueSlime2_1: -7930092261704406278
+      HueSlime2_2: 1056584426
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
