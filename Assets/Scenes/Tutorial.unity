@@ -11508,7 +11508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintTilemap: {fileID: 345545455}
-  redPaintTile: {fileID: 11400000, guid: da0bb778d31ec484983962888c185019, type: 2}
+  redPaintTile: {fileID: 11400000, guid: 2a39652edb1d9bf479fc8e9ccaf2bdce, type: 2}
   bluePaintTile: {fileID: 0}
   isRed: 1
 --- !u!95 &2054470384
