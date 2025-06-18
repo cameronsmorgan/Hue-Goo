@@ -49,8 +49,14 @@ public class FlowerManager : MonoBehaviour
     private enum GamePhase { Reveal, Paint, Wait }
     private GamePhase currentPhase = GamePhase.Wait;
 
+    private Color player1Color;
+    private Color player2Color;
+
     void Start()
     {
+        ColorUtility.TryParseHtmlString("#78DBD9", out player1Color);
+        ColorUtility.TryParseHtmlString("#96DA83", out player2Color);
+
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -81,13 +87,13 @@ public class FlowerManager : MonoBehaviour
             if (tileName.Contains("red"))
             {
                 player1Score++;
-                RevealScoredFlower(pos, Color.red);
+                RevealScoredFlower(pos, player1Color);
                 PlayFlowerSound();
             }
             else if (tileName.Contains("blue"))
             {
                 player2Score++;
-                RevealScoredFlower(pos, Color.blue);
+                RevealScoredFlower(pos, player2Color);
                 PlayFlowerSound();
             }
 
@@ -264,7 +270,7 @@ public class FlowerManager : MonoBehaviour
         }
         else
         {
-            PartyModeManager.lastRoundWinner = 3;
+            PartyModeManager.lastRoundWinner = 3;   
             SceneManager.LoadScene("UltimateWinner");
         }
     }

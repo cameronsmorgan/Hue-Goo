@@ -10,13 +10,16 @@ public class PetalFlower : MonoBehaviour
     private Coroutine colorCoroutine = null;
     private string currentPlayer = "";
     private int coloredPetals = 0;
-    private Color player1Color = Color.red;
-    private Color player2Color = Color.blue;
+    private Color player1Color;
+    private Color player2Color;
 
     private bool isCompleted = false;
 
     void Start()
     {
+        ColorUtility.TryParseHtmlString("#78DBD9", out player1Color);
+        ColorUtility.TryParseHtmlString("#96DA83", out player2Color);
+        
         // Automatically find all child petals
         petals.Clear();
         foreach (Transform child in transform)
