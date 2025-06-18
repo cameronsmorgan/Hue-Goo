@@ -22533,7 +22533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveCooldown: 0.2
-  controlSchemeName: Player`2
+  controlSchemeName: Player2
   collisionLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -22741,7 +22741,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 479ad145-d125-4c9b-99a5-d5a2092f262f
+  m_DefaultActionMap: Player2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1001 &792482063
