@@ -20,6 +20,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -464
       objectReference: {fileID: 0}
+    - target: {fileID: 1776365290696261145, guid: bd23fbf1250ef934799053590892915c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776365290696261145, guid: bd23fbf1250ef934799053590892915c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7069258267834342930}
+    - target: {fileID: 1776365290696261145, guid: bd23fbf1250ef934799053590892915c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776365290696261145, guid: bd23fbf1250ef934799053590892915c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776365290696261145, guid: bd23fbf1250ef934799053590892915c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2021989071890949373, guid: bd23fbf1250ef934799053590892915c, type: 3}
       propertyPath: m_text
       value: 'PETAL PURSUIT '
@@ -198,3 +218,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd23fbf1250ef934799053590892915c, type: 3}
+--- !u!1 &7069258267834342930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 869901070665346648, guid: bd23fbf1250ef934799053590892915c, type: 3}
+  m_PrefabInstance: {fileID: 7929025413546717258}
+  m_PrefabAsset: {fileID: 0}
