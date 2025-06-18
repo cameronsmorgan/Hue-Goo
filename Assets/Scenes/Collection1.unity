@@ -6400,8 +6400,8 @@ RectTransform:
   - {fileID: 1220828944}
   - {fileID: 550988368}
   - {fileID: 77245713}
-  - {fileID: 1171984378}
   - {fileID: 1340193831}
+  - {fileID: 1171984378}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11283,7 +11283,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &2054470377
 GameObject:

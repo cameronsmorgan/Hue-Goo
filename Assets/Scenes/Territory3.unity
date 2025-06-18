@@ -6814,6 +6814,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &169930767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 869901070665346648, guid: bd23fbf1250ef934799053590892915c, type: 3}
+  m_PrefabInstance: {fileID: 2003713712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &185422608
 GameObject:
   m_ObjectHideFlags: 0
@@ -6944,7 +6949,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &191702399
 RectTransform:
@@ -7106,9 +7111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10347cfabf48aa4293981fc153e8ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpPanel: {fileID: 0}
+  helpPanel: {fileID: 169930767}
   helpButton: {fileID: 0}
-  closeHelpButton: {fileID: 0}
+  closeHelpButton: {fileID: 1631042121}
   doneButton: {fileID: 0}
   quitButton: {fileID: 0}
   showHelpAtStart: 1
@@ -7126,7 +7131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1181286690}
-  helpPanelUI: {fileID: 0}
+  helpPanelUI: {fileID: 169930767}
 --- !u!114 &286704601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13042,6 +13047,17 @@ Transform:
   - {fileID: 345545453}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1631042121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1776365290696261145, guid: bd23fbf1250ef934799053590892915c, type: 3}
+  m_PrefabInstance: {fileID: 2003713712}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1859632379
 GameObject:
   m_ObjectHideFlags: 0
@@ -13712,7 +13728,7 @@ SceneRoots:
   - {fileID: 2138692938}
   - {fileID: 185422610}
   - {fileID: 1056361653}
+  - {fileID: 191702399}
   - {fileID: 286704598}
   - {fileID: 1051232849}
   - {fileID: 155558132}
-  - {fileID: 191702399}
