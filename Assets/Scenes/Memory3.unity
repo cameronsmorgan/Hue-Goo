@@ -5038,6 +5038,7 @@ GameObject:
   - component: {fileID: 773037628}
   - component: {fileID: 773037627}
   - component: {fileID: 773037632}
+  - component: {fileID: 773037633}
   m_Layer: 6
   m_Name: Player2
   m_TagString: Player
@@ -5058,8 +5059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveCooldown: 0.2
-  horizontalInput: Horizontal2
-  verticalInput: Vertical2
+  controlSchemeName: Player2
   collisionLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -5224,6 +5224,36 @@ MonoBehaviour:
   redPaintTile: {fileID: 0}
   bluePaintTile: {fileID: 11400000, guid: c380abf32e6b843ab98db2bafd621f06, type: 2}
   isRed: 0
+--- !u!114 &773037633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773037626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 95c355cf196eed74191925af23f91415, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 479ad145-d125-4c9b-99a5-d5a2092f262f
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &999758567
 GameObject:
   m_ObjectHideFlags: 0
@@ -9560,6 +9590,7 @@ GameObject:
   - component: {fileID: 2054470379}
   - component: {fileID: 2054470378}
   - component: {fileID: 2054470383}
+  - component: {fileID: 2054470384}
   m_Layer: 6
   m_Name: Player1
   m_TagString: Player
@@ -9580,8 +9611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveCooldown: 0.2
-  horizontalInput: Horizontal
-  verticalInput: Vertical
+  controlSchemeName: Player1
   collisionLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -9746,6 +9776,36 @@ MonoBehaviour:
   redPaintTile: {fileID: 11400000, guid: da0bb778d31ec484983962888c185019, type: 2}
   bluePaintTile: {fileID: 0}
   isRed: 1
+--- !u!114 &2054470384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054470377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 95c355cf196eed74191925af23f91415, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player1
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &2114364008
 GameObject:
   m_ObjectHideFlags: 0

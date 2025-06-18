@@ -22,7 +22,7 @@ EditorBuildSettings:
     guid: ff1d38b885f0e43669c728e995fba411
   - enabled: 1
     path: Assets/Scenes/GooCutScene.unity
-    guid: c78a49c137e1cfa4f962484aa41e4d3b
+    guid: 419d663c1dd242a45a860bbdf4fa3145
   - enabled: 1
     path: Assets/Scenes/HueCutScene.unity
     guid: f8ee2f897252c8c47989ddfc695a7266
@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Memory2.unity
     guid: cc9076505e3d9284abb90eabb83b0a1d
+  - enabled: 1
+    path: Assets/Scenes/Memory3.unity
+    guid: 3abfaf6f023f25a4da1c8cb0ef77696a
   - enabled: 1
     path: Assets/Scenes/PartyMode.unity
     guid: fdf297e4a983af94797856fbe79a1851
@@ -53,9 +56,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Race6.unity
     guid: 8ee2ccf8f09ff4a218ff4595126ff0f3
-  - enabled: 1
-    path: Assets/Scenes/Memory3.unity
-    guid: 3abfaf6f023f25a4da1c8cb0ef77696a
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02

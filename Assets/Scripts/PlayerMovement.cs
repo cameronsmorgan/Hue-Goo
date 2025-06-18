@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float moveCooldown = 0.2f;
-    public string horizontalInput = "Horizontal";
-    public string verticalInput = "Vertical";
+    // public string horizontalInput = "Horizontal";
+    //public string verticalInput = "Vertical";
+
+    public string controlSchemeName = "Player1";
     public LayerMask collisionLayer;
 
     private float timer;
@@ -18,6 +21,35 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true;
 
     public Animator SnailController;
+
+    private PlayerControls controls;
+    private Vector2 rawInput;
+
+    void Awake()
+    {
+        controls = new PlayerControls();
+
+        if (controlSchemeName == "Player1")
+        {
+            controls.Player1.Move.performed += ctx => rawInput = ctx.ReadValue<Vector2>();
+            controls.Player1.Move.canceled += ctx => rawInput = Vector2.zero;
+        }
+        else
+        {
+            controls.Player2.Move.performed += ctx => rawInput = ctx.ReadValue<Vector2>();
+            controls.Player2.Move.canceled += ctx => rawInput = Vector2.zero;
+        }
+    }
+
+    void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    void OnDisable()
+    {
+        controls.Disable();
+    }
 
     void Start()
     {
@@ -33,8 +65,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isMoving && timer >= moveCooldown)
         {
-            int moveX = (int)Input.GetAxisRaw(horizontalInput);
-            int moveY = (int)Input.GetAxisRaw(verticalInput);
+            int moveX = Mathf.RoundToInt(rawInput.x);
+            int moveY = Mathf.RoundToInt(rawInput.y);
 
             if (moveX != 0)
                 moveY = 0;
