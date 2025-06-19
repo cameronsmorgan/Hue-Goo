@@ -6899,8 +6899,8 @@ MonoBehaviour:
   borderTilemapCollider: {fileID: 1264900456}
   walkableTilemap: {fileID: 34354956}
   flowerParent: {fileID: 650654274}
-  spawnInterval: 0
-  numberOfFlowers: 6
+  spawnInterval: 9
+  numberOfFlowers: 3
   maxSpawnAttempts: 50
 --- !u!4 &546075691
 Transform:
@@ -7446,6 +7446,10 @@ PrefabInstance:
       propertyPath: paintTilemap
       value: 
       objectReference: {fileID: 345545455}
+    - target: {fileID: 5016021930374058182, guid: 0b4de9a8cb526da4e857ee5c66b80e46, type: 3}
+      propertyPath: bluePaintTile
+      value: 
+      objectReference: {fileID: 11400000, guid: fc6c01e443dc099478dfc1e7ff78001d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

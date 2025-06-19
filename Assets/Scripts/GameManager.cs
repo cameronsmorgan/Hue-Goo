@@ -78,21 +78,20 @@ public class GameManager : MonoBehaviour
         if (player1Score > player2Score)
         {
             Debug.Log("Player 1 Wins!");
-            PartyModeManager.lastRoundWinner = 2; 
+            PartyModeManager.lastRoundWinner = 1; 
             SceneManager.LoadScene("UltimateWinner");
         }
         else if (player2Score > player1Score)
         {
             Debug.Log("Player 2 Wins!");
-            PartyModeManager.lastRoundWinner = 1;
+            PartyModeManager.lastRoundWinner = 2;
             SceneManager.LoadScene("UltimateWinner");
         }
         else
         {
             Debug.Log("It's a tie — showing random winner.");
-            string[] options = { "HueCutScene", "GooCutScene" };
-            string randomScene = options[Random.Range(0, options.Length)];
-            SceneManager.LoadScene(randomScene);
+            PartyModeManager.lastRoundWinner = 3;
+            SceneManager.LoadScene("UltimateWinner");
         }
     }
 }

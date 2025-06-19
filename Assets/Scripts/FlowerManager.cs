@@ -84,13 +84,13 @@ public class FlowerManager : MonoBehaviour
 
             string tileName = paintedTile.name.ToLower();
 
-            if (tileName.Contains("red"))
+            if (tileName.Contains("hue"))
             {
                 player1Score++;
                 RevealScoredFlower(pos, player1Color);
                 PlayFlowerSound();
             }
-            else if (tileName.Contains("blue"))
+            else if (tileName.Contains("goo"))
             {
                 player2Score++;
                 RevealScoredFlower(pos, player2Color);
@@ -103,15 +103,19 @@ public class FlowerManager : MonoBehaviour
 
     IEnumerator GameLoop()
     {
-        while (elapsedGameTime < totalGameTime)
+        yield return new WaitForSeconds(0.25f);
+        while (elapsedGameTime <= totalGameTime)
         {
+            paintableTilemap.ClearAllTiles();
             SpawnFlowers();
 
             currentPhase = GamePhase.Reveal;
             SetPlayerMovement(false);
             ShowFlowers(true);
-            yield return new WaitForSeconds(revealTime);
+            Time.timeScale = 0;
+            yield return new WaitForSecondsRealtime(revealTime);
 
+            Time.timeScale = 1f;
             currentPhase = GamePhase.Paint;
             ShowFlowers(false);
             SetPlayerMovement(true);
@@ -260,12 +264,12 @@ public class FlowerManager : MonoBehaviour
     {
         if (player1Score > player2Score)
         {
-            PartyModeManager.lastRoundWinner = 2;
+            PartyModeManager.lastRoundWinner = 1;
             SceneManager.LoadScene("UltimateWinner");
         }
         else if (player2Score > player1Score)
         {
-            PartyModeManager.lastRoundWinner = 1;
+            PartyModeManager.lastRoundWinner = 2;
             SceneManager.LoadScene("UltimateWinner");
         }
         else

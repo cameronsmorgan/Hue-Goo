@@ -30,6 +30,8 @@ public class RaceLevelManager : MonoBehaviour
     {
         Debug.Log(playerName + " finished!");
 
+        
+
         // Notify GameManager
         Level4GameManager.Instance.PlayerFinished(playerName);
     }

@@ -33,9 +33,9 @@ public class ScoreScreenManager : MonoBehaviour
     {
         //PartyModeManager.player1WinPoints = 0;
         //PartyModeManager.player2WinPoints = 0;
-        //PartyModeManager.numToWin = 3;
+        //PartyModeManager.numToWin = 1;
 
-        //PartyModeManager.lastRoundWinner = 1;
+        //PartyModeManager.lastRoundWinner = 2;
         SetSnailPositions();
 
         MoveRoundWinner();
