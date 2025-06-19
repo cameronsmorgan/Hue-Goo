@@ -10,12 +10,16 @@ public class CountdownTimer : MonoBehaviour
     public Text timerText;
     private bool isRunning = true;
     private bool hasTriggered10Seconds = false;
+    private bool hasPlayedEndSound = false;
 
     [Header("Audio Settings")]
     public AudioClip tickingSound;
     public AudioClip warningSound;
+    public AudioClip timerEndSound;
     [Range(0, 1)] public float volume = 0.7f;
-    private AudioSource audioSource;
+
+    private AudioSource tickingAudioSource;
+    private AudioSource endAudioSource;
 
     [Header("Screen Shake Settings")]
     public float shakeDuration = 2f;
@@ -23,7 +27,7 @@ public class CountdownTimer : MonoBehaviour
     private Camera mainCamera;
     private Vector3 originalCameraPos;
 
-    // ✅ Timer end event for external listeners (like GameManager)
+    // Timer end event for external listeners
     public delegate void TimerEndAction();
     public event TimerEndAction OnTimerEnd;
 
@@ -32,10 +36,16 @@ public class CountdownTimer : MonoBehaviour
         currentTime = startTime;
         UpdateTimerDisplay();
 
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        audioSource.volume = volume;
+        // Audio sources
+        tickingAudioSource = gameObject.AddComponent<AudioSource>();
+        tickingAudioSource.playOnAwake = false;
+        tickingAudioSource.volume = volume;
 
+        endAudioSource = gameObject.AddComponent<AudioSource>();
+        endAudioSource.playOnAwake = false;
+        endAudioSource.volume = volume;
+
+        // Camera
         mainCamera = Camera.main;
         if (mainCamera != null)
             originalCameraPos = mainCamera.transform.localPosition;
@@ -54,6 +64,15 @@ public class CountdownTimer : MonoBehaviour
                 StartCoroutine(ShakeCamera());
             }
 
+            if (currentTime <= 1f && !hasPlayedEndSound)
+            {
+                hasPlayedEndSound = true;
+                if (timerEndSound != null && endAudioSource != null)
+                {
+                    endAudioSource.PlayOneShot(timerEndSound);
+                }
+            }
+
             if (currentTime <= 0f)
             {
                 currentTime = 0f;
@@ -65,22 +84,19 @@ public class CountdownTimer : MonoBehaviour
         }
     }
 
-    // ✅ Called when timer hits 0
     void TimerEnded()
     {
         Debug.Log("Timer ended!");
 
-        if (audioSource != null)
-            audioSource.Stop();
+        if (tickingAudioSource != null)
+            tickingAudioSource.Stop();
 
         if (mainCamera != null)
             mainCamera.transform.localPosition = originalCameraPos;
 
-        // ✅ Notify other scripts
         OnTimerEnd?.Invoke();
     }
 
-    // ✅ Update the text display
     void UpdateTimerDisplay()
     {
         int seconds = Mathf.CeilToInt(currentTime);
@@ -94,12 +110,11 @@ public class CountdownTimer : MonoBehaviour
             timerText.color = Color.white;
     }
 
-    // ✅ Play ticking and warning sounds
     IEnumerator PlayTickingSound()
     {
         if (warningSound != null)
         {
-            audioSource.PlayOneShot(warningSound);
+            tickingAudioSource.PlayOneShot(warningSound);
             yield return new WaitForSeconds(warningSound.length);
         }
 
@@ -107,7 +122,7 @@ public class CountdownTimer : MonoBehaviour
         {
             if (tickingSound != null)
             {
-                audioSource.PlayOneShot(tickingSound);
+                tickingAudioSource.PlayOneShot(tickingSound);
                 yield return new WaitForSeconds(tickingSound.length);
             }
             else
@@ -117,7 +132,6 @@ public class CountdownTimer : MonoBehaviour
         }
     }
 
-    // ✅ Shake the camera for visual feedback
     IEnumerator ShakeCamera()
     {
         if (mainCamera == null) yield break;
@@ -137,12 +151,11 @@ public class CountdownTimer : MonoBehaviour
         mainCamera.transform.localPosition = originalCameraPos;
     }
 
-    // ✅ Optional pause/resume/reset functionality
     public void SetTimerPaused(bool pause)
     {
         isRunning = !pause;
-        if (pause && audioSource != null) audioSource.Pause();
-        else if (!pause && audioSource != null && currentTime <= 10f) audioSource.UnPause();
+        if (pause && tickingAudioSource != null) tickingAudioSource.Pause();
+        else if (!pause && tickingAudioSource != null && currentTime <= 10f) tickingAudioSource.UnPause();
     }
 
     public void ResetTimer()
@@ -150,10 +163,12 @@ public class CountdownTimer : MonoBehaviour
         currentTime = startTime;
         isRunning = true;
         hasTriggered10Seconds = false;
+        hasPlayedEndSound = false;
         timerText.color = Color.white;
         UpdateTimerDisplay();
 
-        if (audioSource != null) audioSource.Stop();
+        if (tickingAudioSource != null) tickingAudioSource.Stop();
         if (mainCamera != null) mainCamera.transform.localPosition = originalCameraPos;
     }
 }
+

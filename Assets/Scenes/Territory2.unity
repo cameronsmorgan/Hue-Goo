@@ -7222,6 +7222,7 @@ MonoBehaviour:
   timerText: {fileID: 1187015386}
   tickingSound: {fileID: 8300000, guid: e3606b4d90c8c3348adfa9cbe8b5b681, type: 3}
   warningSound: {fileID: 8300000, guid: e3606b4d90c8c3348adfa9cbe8b5b681, type: 3}
+  timerEndSound: {fileID: 8300000, guid: b1e61571b39d3954db50c0ce6b2200c0, type: 3}
   volume: 0.7
   shakeDuration: 10
   shakeMagnitude: 0.02

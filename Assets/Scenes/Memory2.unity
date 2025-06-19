@@ -221,6 +221,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2745957931375696845, guid: 33c746df0793bd04f934f1f97dce7e57, type: 3}
   m_PrefabInstance: {fileID: 1868011}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1868013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 742057138706618684, guid: 33c746df0793bd04f934f1f97dce7e57, type: 3}
+  m_PrefabInstance: {fileID: 1868011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1868014 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2231597056161696125, guid: 33c746df0793bd04f934f1f97dce7e57, type: 3}
+  m_PrefabInstance: {fileID: 1868011}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &34354953
 GameObject:
   m_ObjectHideFlags: 0
@@ -4777,6 +4793,7 @@ MonoBehaviour:
   timerText: {fileID: 780367617}
   flowerCollectSound: {fileID: 8300000, guid: b21d39678b8ccda4e9e2de9a571c991f, type: 3}
   tickingSound: {fileID: 8300000, guid: e3606b4d90c8c3348adfa9cbe8b5b681, type: 3}
+  timerEndSound: {fileID: 8300000, guid: b1e61571b39d3954db50c0ce6b2200c0, type: 3}
   cameraTransform: {fileID: 519420032}
   shakeIntensity: 0.02
   shakeDuration: 10
@@ -5017,7 +5034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &408089254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5031,7 +5048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 181955839}
-  helpPanelUI: {fileID: 0}
+  helpPanelUI: {fileID: 1868013}
 --- !u!224 &408089255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5067,9 +5084,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10347cfabf48aa4293981fc153e8ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpPanel: {fileID: 0}
+  helpPanel: {fileID: 1868013}
   helpButton: {fileID: 0}
-  closeHelpButton: {fileID: 0}
+  closeHelpButton: {fileID: 1868014}
   doneButton: {fileID: 0}
   quitButton: {fileID: 0}
   showHelpAtStart: 1
@@ -9363,7 +9380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1531027156
 MonoBehaviour:
   m_ObjectHideFlags: 0

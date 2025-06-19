@@ -32,7 +32,9 @@ public class FlowerManager : MonoBehaviour
     [Header("Audio")]
     public AudioClip flowerCollectSound;
     public AudioClip tickingSound;
+    public AudioClip timerEndSound;
     private AudioSource audioSource;
+    private AudioSource endAudioSource;
 
     [Header("Camera Shake")]
     public Transform cameraTransform;
@@ -44,6 +46,7 @@ public class FlowerManager : MonoBehaviour
     private HashSet<Vector3Int> flowersScored = new HashSet<Vector3Int>();
 
     private bool tickingStarted = false;
+    private bool hasPlayedEndSound = false;
     private Vector3 originalCamPos;
 
     private enum GamePhase { Reveal, Paint, Wait }
@@ -60,6 +63,9 @@ public class FlowerManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
+
+        endAudioSource = gameObject.AddComponent<AudioSource>();
+        endAudioSource.playOnAwake = false;
 
         if (cameraTransform == null)
             cameraTransform = Camera.main.transform;
@@ -156,8 +162,14 @@ public class FlowerManager : MonoBehaviour
                         audioSource.Play();
                     }
 
-                    // Shake camera slightly
                     StartCoroutine(ShakeCamera());
+                }
+
+                if (seconds == 1 && !hasPlayedEndSound)
+                {
+                    hasPlayedEndSound = true;
+                    if (timerEndSound != null)
+                        endAudioSource.PlayOneShot(timerEndSound);
                 }
             }
 
@@ -176,7 +188,7 @@ public class FlowerManager : MonoBehaviour
     IEnumerator ShakeCamera()
     {
         Vector3 randomOffset = Random.insideUnitSphere * shakeIntensity;
-        randomOffset.z = 0f; // Prevent Z movement
+        randomOffset.z = 0f;
 
         cameraTransform.position = originalCamPos + randomOffset;
         yield return new WaitForSeconds(shakeDuration);
@@ -274,7 +286,7 @@ public class FlowerManager : MonoBehaviour
         }
         else
         {
-            PartyModeManager.lastRoundWinner = 3;   
+            PartyModeManager.lastRoundWinner = 3;
             SceneManager.LoadScene("UltimateWinner");
         }
     }

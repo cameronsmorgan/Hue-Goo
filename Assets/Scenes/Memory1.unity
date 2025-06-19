@@ -5123,6 +5123,7 @@ MonoBehaviour:
   timerText: {fileID: 1269649917}
   flowerCollectSound: {fileID: 8300000, guid: b21d39678b8ccda4e9e2de9a571c991f, type: 3}
   tickingSound: {fileID: 8300000, guid: e3606b4d90c8c3348adfa9cbe8b5b681, type: 3}
+  timerEndSound: {fileID: 8300000, guid: b1e61571b39d3954db50c0ce6b2200c0, type: 3}
   cameraTransform: {fileID: 519420032}
   shakeIntensity: 0.02
   shakeDuration: 10

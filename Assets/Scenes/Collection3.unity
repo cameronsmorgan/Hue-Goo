@@ -6722,6 +6722,7 @@ MonoBehaviour:
   timerText: {fileID: 1511329922}
   tickingSound: {fileID: 8300000, guid: e3606b4d90c8c3348adfa9cbe8b5b681, type: 3}
   warningSound: {fileID: 8300000, guid: e3606b4d90c8c3348adfa9cbe8b5b681, type: 3}
+  timerEndSound: {fileID: 8300000, guid: b1e61571b39d3954db50c0ce6b2200c0, type: 3}
   volume: 0.7
   shakeDuration: 10
   shakeMagnitude: 0.02
@@ -6738,7 +6739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 977757678}
-  helpPanelUI: {fileID: 0}
+  helpPanelUI: {fileID: 1784819542}
 --- !u!114 &45128163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6751,9 +6752,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10347cfabf48aa4293981fc153e8ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpPanel: {fileID: 0}
+  helpPanel: {fileID: 1784819542}
   helpButton: {fileID: 0}
-  closeHelpButton: {fileID: 0}
+  closeHelpButton: {fileID: 1784819543}
   doneButton: {fileID: 0}
   quitButton: {fileID: 0}
   showHelpAtStart: 1
@@ -12310,6 +12311,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5642104099420003555, guid: a9ddc1b6b1c382449abc79961fc08250, type: 3}
   m_PrefabInstance: {fileID: 1784819540}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1784819542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7069258267834342930, guid: a9ddc1b6b1c382449abc79961fc08250, type: 3}
+  m_PrefabInstance: {fileID: 1784819540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1784819543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8552164492467211859, guid: a9ddc1b6b1c382449abc79961fc08250, type: 3}
+  m_PrefabInstance: {fileID: 1784819540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1829979440
 GameObject:
   m_ObjectHideFlags: 0
