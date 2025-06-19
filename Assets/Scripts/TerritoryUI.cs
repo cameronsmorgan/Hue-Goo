@@ -10,8 +10,8 @@ public class TerritoryUI : MonoBehaviour
 
     public void UpdateUI(float redPercent, float bluePercent)
     {
-        redText.text = $"Red: {redPercent}%";
-        blueText.text = $"Blue: {bluePercent}%";
+        redText.text = $"Hue: {redPercent}%";
+        blueText.text = $"Goo: {bluePercent}%";
 
         redSlider.value = redPercent;
         blueSlider.value = bluePercent;
