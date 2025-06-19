@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 792482064}
-  helpPanelUI: {fileID: 0}
+  helpPanelUI: {fileID: 912582632}
 --- !u!114 &34000745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   helpPanel: {fileID: 0}
   helpButton: {fileID: 0}
-  closeHelpButton: {fileID: 0}
+  closeHelpButton: {fileID: 912582633}
   doneButton: {fileID: 0}
   quitButton: {fileID: 0}
   showHelpAtStart: 1
@@ -23095,6 +23095,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6352556137466483089, guid: 5529b1dabf025c141997c13837b245ab, type: 3}
   m_PrefabInstance: {fileID: 912582630}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &912582632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8394458054512137056, guid: 5529b1dabf025c141997c13837b245ab, type: 3}
+  m_PrefabInstance: {fileID: 912582630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &912582633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6974795597079970593, guid: 5529b1dabf025c141997c13837b245ab, type: 3}
+  m_PrefabInstance: {fileID: 912582630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &915977794
 GameObject:
   m_ObjectHideFlags: 0

@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2037740311}
-  helpPanelUI: {fileID: 0}
+  helpPanelUI: {fileID: 2136335294}
 --- !u!114 &34000745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,9 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10347cfabf48aa4293981fc153e8ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpPanel: {fileID: 0}
+  helpPanel: {fileID: 2136335294}
   helpButton: {fileID: 0}
-  closeHelpButton: {fileID: 0}
+  closeHelpButton: {fileID: 433683588}
   doneButton: {fileID: 0}
   quitButton: {fileID: 0}
   showHelpAtStart: 1
@@ -8946,6 +8946,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &433683588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6974795597079970593, guid: 5529b1dabf025c141997c13837b245ab, type: 3}
+  m_PrefabInstance: {fileID: 1114401955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &450779945
 GameObject:
   m_ObjectHideFlags: 0
@@ -28829,6 +28840,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 915977795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2136335294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8394458054512137056, guid: 5529b1dabf025c141997c13837b245ab, type: 3}
+  m_PrefabInstance: {fileID: 1114401955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2138692936
 GameObject:
   m_ObjectHideFlags: 0
