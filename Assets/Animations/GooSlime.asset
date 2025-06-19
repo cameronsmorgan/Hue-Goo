@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: GooSlime
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 8547638716960939232, guid: 780a8d2f74d9fad4f8788ae231dea302, type: 3}
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  - {fileID: -6796035049569383583, guid: e626d024b63eb0a48b04c1eade45584d, type: 3}
+  - {fileID: 1369136026, guid: e626d024b63eb0a48b04c1eade45584d, type: 3}
+  m_MinSpeed: 0
+  m_MaxSpeed: 3
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0

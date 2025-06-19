@@ -59,6 +59,14 @@ public class PlayerColorFill : MonoBehaviour
                 {
                     Level4GameManager.Instance.PlayerFinished(playerName);
                     Debug.Log($"{playerName} has completed their area!");
+
+                    GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Player");
+
+                    foreach (GameObject obj in taggedObjects)
+                    {
+                        Debug.Log(obj);
+                        obj.GetComponent<PlayerMovement>().canMove = false;
+                    }
                 }
             }
         }
