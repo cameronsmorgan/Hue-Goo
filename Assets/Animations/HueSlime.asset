@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: HueSlime
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -495830658, guid: 0cae5ce5612a4f34482111f5f28ce099, type: 3}
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  - {fileID: 872685965, guid: 9a2f5190fdf707e42aed353edf10f4e3, type: 3}
+  - {fileID: 5729601619215908761, guid: 9a2f5190fdf707e42aed353edf10f4e3, type: 3}
+  m_MinSpeed: 0
+  m_MaxSpeed: 3
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0

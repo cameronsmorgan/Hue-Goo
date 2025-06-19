@@ -31,11 +31,11 @@ public class Level4GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //if (Instance.raceRounds.Count == 0)
-        //{
-        //    populateRaceRounds(3);
-        //    LoadNextRoundScene(); 
-        //}
+        if (Instance.raceRounds.Count == 0)
+        {
+            populateRaceRounds(3);
+            LoadNextRoundScene();
+        }
     }
 
     private void OnDestroy()
