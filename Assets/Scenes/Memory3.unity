@@ -5039,6 +5039,7 @@ GameObject:
   - component: {fileID: 773037627}
   - component: {fileID: 773037632}
   - component: {fileID: 773037633}
+  - component: {fileID: 773037634}
   m_Layer: 6
   m_Name: Player2
   m_TagString: Player
@@ -5064,7 +5065,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   canMove: 1
-  SnailController: {fileID: 0}
+  SnailController: {fileID: 773037634}
 --- !u!61 &773037628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5099,17 +5100,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.000000059604645, y: 0.00017243624}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.253125, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.25882465, y: 0.5072738}
   m_EdgeRadius: 0
 --- !u!50 &773037629
 Rigidbody2D:
@@ -5182,8 +5183,8 @@ SpriteRenderer:
   m_SortingLayerID: -18607067
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.011764706, g: 0.79607844, b: 0.85490197, a: 1}
+  m_Sprite: {fileID: 8066128649685397002, guid: eb575e0962cf0f8438f976ca653f3c07, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5203,7 +5204,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.247, y: -0.251, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5222,7 +5223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintTilemap: {fileID: 345545455}
   redPaintTile: {fileID: 0}
-  bluePaintTile: {fileID: 11400000, guid: c380abf32e6b843ab98db2bafd621f06, type: 2}
+  bluePaintTile: {fileID: 11400000, guid: fc6c01e443dc099478dfc1e7ff78001d, type: 2}
   isRed: 0
 --- !u!114 &773037633
 MonoBehaviour:
@@ -5251,9 +5252,31 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 479ad145-d125-4c9b-99a5-d5a2092f262f
+  m_DefaultActionMap: Player2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &773037634
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773037626}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47770f77ecf0003418e725beb8cd2ef1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &999758567
 GameObject:
   m_ObjectHideFlags: 0
@@ -9591,6 +9614,7 @@ GameObject:
   - component: {fileID: 2054470378}
   - component: {fileID: 2054470383}
   - component: {fileID: 2054470384}
+  - component: {fileID: 2054470385}
   m_Layer: 6
   m_Name: Player1
   m_TagString: Player
@@ -9616,7 +9640,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   canMove: 1
-  SnailController: {fileID: 0}
+  SnailController: {fileID: 2054470385}
 --- !u!61 &2054470379
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9651,17 +9675,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0007303059, y: 0.0010134131}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.253125, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.26238924, y: 0.50548923}
   m_EdgeRadius: 0
 --- !u!50 &2054470380
 Rigidbody2D:
@@ -9734,8 +9758,8 @@ SpriteRenderer:
   m_SortingLayerID: -18607067
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.85490197, g: 0, b: 0.003921569, a: 1}
+  m_Sprite: {fileID: -4626631557489920999, guid: be59ac0b1fbb11640ad7761efc661eee, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9755,7 +9779,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.248, y: 0.751, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -9773,7 +9797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintTilemap: {fileID: 345545455}
-  redPaintTile: {fileID: 11400000, guid: da0bb778d31ec484983962888c185019, type: 2}
+  redPaintTile: {fileID: 11400000, guid: 2a39652edb1d9bf479fc8e9ccaf2bdce, type: 2}
   bluePaintTile: {fileID: 0}
   isRed: 1
 --- !u!114 &2054470384
@@ -9806,6 +9830,28 @@ MonoBehaviour:
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &2054470385
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054470377}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7775e29e6b7e5534e8becdafd2963eac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2114364008
 GameObject:
   m_ObjectHideFlags: 0

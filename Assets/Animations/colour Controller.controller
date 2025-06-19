@@ -10,8 +10,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -1689920349178688654}
-    m_Position: {x: 212.92328, y: 204.29562, z: 0}
+    m_State: {fileID: -265097481143884060}
+    m_Position: {x: 300, y: 200, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -21,15 +21,15 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -1689920349178688654}
---- !u!1102 &-1689920349178688654
+  m_DefaultState: {fileID: -265097481143884060}
+--- !u!1102 &-265097481143884060
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bombPowerUp
+  m_Name: BOMB TEST
   m_Speed: 0.2
   m_CycleOffset: 0
   m_Transitions: []
@@ -42,7 +42,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 08b783a9ca1951849ae5cec080cd25ab, type: 2}
+  m_Motion: {fileID: 7400000, guid: afa975e25267921479056a0a2e13d44a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
