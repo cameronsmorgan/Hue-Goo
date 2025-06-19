@@ -8660,8 +8660,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintTilemap: {fileID: 345545455}
-  redTile: {fileID: 11400000, guid: da0bb778d31ec484983962888c185019, type: 2}
-  blueTile: {fileID: 11400000, guid: c380abf32e6b843ab98db2bafd621f06, type: 2}
+  redTile: {fileID: 11400000, guid: 2a39652edb1d9bf479fc8e9ccaf2bdce, type: 2}
+  blueTile: {fileID: 11400000, guid: fc6c01e443dc099478dfc1e7ff78001d, type: 2}
   walkableAreaTilemap: {fileID: 34354956}
 --- !u!4 &1056361653
 Transform:

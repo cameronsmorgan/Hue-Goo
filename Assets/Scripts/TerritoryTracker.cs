@@ -72,12 +72,12 @@ public class TerritoryTracker : MonoBehaviour
 
         if (redTiles > blueTiles)
         {
-            PartyModeManager.lastRoundWinner = 2;
+            PartyModeManager.lastRoundWinner = 1;
             SceneManager.LoadScene("UltimateWinner");
         }
         else if (blueTiles > redTiles)
         {
-            PartyModeManager.lastRoundWinner = 1;
+            PartyModeManager.lastRoundWinner = 2;
             SceneManager.LoadScene("UltimateWinner");
         }
         else

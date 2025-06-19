@@ -4720,6 +4720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MemoryHelpPnl Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 742057138706618684, guid: 33c746df0793bd04f934f1f97dce7e57, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2745957931375696845, guid: 33c746df0793bd04f934f1f97dce7e57, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

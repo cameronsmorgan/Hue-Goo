@@ -7029,8 +7029,8 @@ MonoBehaviour:
   borderTilemapCollider: {fileID: 1264900456}
   walkableTilemap: {fileID: 34354956}
   flowerParent: {fileID: 650654274}
-  spawnInterval: 0
-  numberOfFlowers: 6
+  spawnInterval: 8
+  numberOfFlowers: 3
   maxSpawnAttempts: 50
 --- !u!4 &546075691
 Transform:

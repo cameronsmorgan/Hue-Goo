@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool IsBlocked(Vector3 target)
     {
-        Collider2D hit = Physics2D.OverlapBox(target, new Vector2(0.4f, 0.4f), 0f, collisionLayer);
+        Collider2D hit = Physics2D.OverlapBox(target, new Vector2(0.2f, 0.2f), 0f, collisionLayer);
         return hit != null;
     }
 

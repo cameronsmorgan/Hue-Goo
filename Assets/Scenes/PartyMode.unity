@@ -2157,7 +2157,7 @@ MonoBehaviour:
   - Race5
   - Race6
   memory:
-  - 'Memory1 '
+  - Memory1
   - Memory2
   - Memory3
 --- !u!4 &1778749582

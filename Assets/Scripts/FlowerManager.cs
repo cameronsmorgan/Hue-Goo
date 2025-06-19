@@ -103,7 +103,8 @@ public class FlowerManager : MonoBehaviour
 
     IEnumerator GameLoop()
     {
-        while (elapsedGameTime < totalGameTime)
+        yield return new WaitForSeconds(0.25f);
+        while (elapsedGameTime <= totalGameTime)
         {
             paintableTilemap.ClearAllTiles();
             SpawnFlowers();
@@ -111,8 +112,10 @@ public class FlowerManager : MonoBehaviour
             currentPhase = GamePhase.Reveal;
             SetPlayerMovement(false);
             ShowFlowers(true);
-            yield return new WaitForSeconds(revealTime);
+            Time.timeScale = 0;
+            yield return new WaitForSecondsRealtime(revealTime);
 
+            Time.timeScale = 1f;
             currentPhase = GamePhase.Paint;
             ShowFlowers(false);
             SetPlayerMovement(true);

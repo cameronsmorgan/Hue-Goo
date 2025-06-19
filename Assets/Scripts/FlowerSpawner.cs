@@ -16,10 +16,18 @@ public class FlowerSpawner : MonoBehaviour
     private void Start()
     {
         SpawnInitialFlowers();
-        InvokeRepeating(nameof(SpawnSingleFlower), spawnInterval, spawnInterval);
+        InvokeRepeating(nameof(SpawnMultiFlowers), spawnInterval, spawnInterval);
     }
 
     private void SpawnInitialFlowers()
+    {
+        for (int i = 0; i < numberOfFlowers; i++)
+        {
+            SpawnSingleFlower();
+        }
+    }
+
+    private void SpawnMultiFlowers()
     {
         for (int i = 0; i < numberOfFlowers; i++)
         {

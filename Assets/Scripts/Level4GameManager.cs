@@ -78,11 +78,20 @@ public class Level4GameManager : MonoBehaviour
             player2Score++;
             Debug.Log("Player 2 Score: " + player2Score);
         }
+
+        Debug.Log($"Hue: {player1Score} - {player2Score} :Goo");
     }
 
     public void EndRound()
     {
         currentRound++;
+
+        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject obj in taggedObjects)
+        {
+            obj.GetComponent<PlayerMovement>().canMove = false;
+        }
 
         if (currentRound >= totalRounds)
         {
@@ -91,13 +100,13 @@ public class Level4GameManager : MonoBehaviour
             if (player1Score > player2Score)
             {
                 result = "Player 1 Wins!";
-                PartyModeManager.lastRoundWinner = 2;
+                PartyModeManager.lastRoundWinner = 1;
                 SceneManager.LoadScene("UltimateWinner");
             }
             else if (player2Score > player1Score)
             {
                 result = "Player 2 Wins!";
-                PartyModeManager.lastRoundWinner = 1;
+                PartyModeManager.lastRoundWinner = 2;
                 SceneManager.LoadScene("UltimateWinner");
             }
             else
