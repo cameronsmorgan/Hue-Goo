@@ -9427,7 +9427,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.003, y: 1.02, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 915977795}
@@ -22625,7 +22625,6 @@ GameObject:
   - component: {fileID: 773037632}
   - component: {fileID: 773037633}
   - component: {fileID: 773037634}
-  - component: {fileID: 773037635}
   m_Layer: 6
   m_Name: Player2
   m_TagString: Player
@@ -22651,7 +22650,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   canMove: 1
-  SnailController: {fileID: 773037635}
+  SnailController: {fileID: 0}
 --- !u!61 &773037628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22857,28 +22856,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!95 &773037635
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 773037626}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 47770f77ecf0003418e725beb8cd2ef1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &840359908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25325,10 +25302,6 @@ PrefabInstance:
     - target: {fileID: 8394458054512137056, guid: 5529b1dabf025c141997c13837b245ab, type: 3}
       propertyPath: m_Name
       value: RaceHelpPnl Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394458054512137056, guid: 5529b1dabf025c141997c13837b245ab, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

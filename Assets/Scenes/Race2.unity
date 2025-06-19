@@ -9167,10 +9167,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RaceHelpPnl Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 8394458054512137056, guid: 5529b1dabf025c141997c13837b245ab, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9661,8 +9657,8 @@ Transform:
   m_GameObject: {fileID: 564334294}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0, z: 0}
-  m_LocalScale: {x: 1.004, y: 1.037, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 915977795}
@@ -18631,13 +18627,13 @@ Tilemap:
   - first: {x: 42, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
+      m_TileIndex: 1
       m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741826
+      m_AllTileFlags: 1073741825
   - first: {x: 45, y: 5, z: 0}
     second:
       serializedVersion: 2
@@ -21560,9 +21556,9 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 106
+  - m_RefCount: 105
     m_Data: {fileID: 11400000, guid: 4544e59da6e1c4a1d935a7a9a8cf6621, type: 2}
-  - m_RefCount: 1066
+  - m_RefCount: 1067
     m_Data: {fileID: 11400000, guid: f46e903a63466364daea3b4c0e4d35f1, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -25160,8 +25156,8 @@ Transform:
   m_GameObject: {fileID: 1985836559}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05, y: -0.03, z: 0}
-  m_LocalScale: {x: 0.98, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1763819763}

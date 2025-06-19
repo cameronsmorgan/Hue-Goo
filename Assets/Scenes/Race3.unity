@@ -9141,10 +9141,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RaceHelpPnl Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 8394458054512137056, guid: 5529b1dabf025c141997c13837b245ab, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9888,8 +9884,8 @@ Transform:
   m_GameObject: {fileID: 564334294}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0151, y: 0.0182, z: 0}
-  m_LocalScale: {x: 1.0016991, y: 1.048007, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 915977795}
@@ -25652,8 +25648,8 @@ Transform:
   m_GameObject: {fileID: 1985836559}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 0.09, z: 0}
-  m_LocalScale: {x: 0.9869, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1763819763}
