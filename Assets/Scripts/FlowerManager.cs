@@ -57,8 +57,8 @@ public class FlowerManager : MonoBehaviour
 
     void Start()
     {
-        ColorUtility.TryParseHtmlString("#78DBD9", out player1Color);
-        ColorUtility.TryParseHtmlString("#96DA83", out player2Color);
+        ColorUtility.TryParseHtmlString("#2DAFAC", out player1Color);
+        ColorUtility.TryParseHtmlString("#579645", out player2Color);
 
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -314,8 +314,8 @@ public class FlowerManager : MonoBehaviour
     void UpdateScoreUI()
     {
         if (player1ScoreText != null)
-            player1ScoreText.text = "Player 1: " + player1Score;
+            player1ScoreText.text = player1Score + " - Hue";
         if (player2ScoreText != null)
-            player2ScoreText.text = "Player 2: " + player2Score;
+            player2ScoreText.text = "Goo - " + player2Score;
     }
 }
