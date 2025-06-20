@@ -22463,7 +22463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintTilemap: {fileID: 383674905}
   grassTilemap: {fileID: 1985836562}
-  paintTile: {fileID: 11400000, guid: 2a39652edb1d9bf479fc8e9ccaf2bdce, type: 2}
+  paintTile: {fileID: 11400000, guid: fc6c01e443dc099478dfc1e7ff78001d, type: 2}
   playerName: Player2
 --- !u!114 &773037634
 MonoBehaviour:
@@ -26061,7 +26061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintTilemap: {fileID: 1903487778}
   grassTilemap: {fileID: 2071609085}
-  paintTile: {fileID: 11400000, guid: fc6c01e443dc099478dfc1e7ff78001d, type: 2}
+  paintTile: {fileID: 11400000, guid: 2a39652edb1d9bf479fc8e9ccaf2bdce, type: 2}
   playerName: Player1
 --- !u!114 &2054470385
 MonoBehaviour:
