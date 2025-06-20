@@ -149,6 +149,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TerritoryUI
       objectReference: {fileID: 0}
+    - target: {fileID: 9114328932622678798, guid: f65964c2cbb9fe14cb95af96113f0b0d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114328932622678798, guid: f65964c2cbb9fe14cb95af96113f0b0d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114328932622678798, guid: f65964c2cbb9fe14cb95af96113f0b0d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -289,6 +301,10 @@ PrefabInstance:
     - target: {fileID: 3867923966384508263, guid: 90a78f522593f1f43b7d0261a5390d07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116945227105238993, guid: 90a78f522593f1f43b7d0261a5390d07, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.2
       objectReference: {fileID: 0}
     - target: {fileID: 7228238169133775617, guid: 90a78f522593f1f43b7d0261a5390d07, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
