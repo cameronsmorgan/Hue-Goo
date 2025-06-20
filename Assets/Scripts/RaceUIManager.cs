@@ -65,20 +65,29 @@ public class RaceUIManager : MonoBehaviour
 
     private IEnumerator CountdownRoutine(float duration)
     {
-        countdownText.gameObject.SetActive(true);
+        countdownText.gameObject.SetActive(Level4GameManager.Instance.currentRound < 2);
 
+        Debug.Log(Level4GameManager.Instance.currentRound); 
         float timer = duration;
         while (timer > 0)
         {
-            countdownText.text = $"Next round in {Mathf.Ceil(timer)}...";
+            if (Level4GameManager.Instance.currentRound < 2)
+            {
+                countdownText.text = $"Next round in {Mathf.Ceil(timer)}...";
+            }
+            else
+                countdownText.text = ""; 
             timer -= Time.deltaTime;
             yield return null;
         }
 
-        countdownText.text = "Go!";
-        yield return new WaitForSeconds(1f);
+        if (Level4GameManager.Instance.currentRound < 2)
+        {
+            countdownText.text = "Go!";
+            yield return new WaitForSeconds(1f);
+        }
 
-        countdownText.gameObject.SetActive(false);
+            countdownText.gameObject.SetActive(false);
         winnerText.gameObject.SetActive(false);
 
         Level4GameManager.Instance.EndRound();

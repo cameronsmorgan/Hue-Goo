@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     {
         UpdateScoreUI();
 
-        // ✅ Subscribe to timer end event
         CountdownTimer timer = FindObjectOfType<CountdownTimer>();
         if (timer != null)
         {
@@ -58,10 +57,10 @@ public class GameManager : MonoBehaviour
     private void UpdateScoreUI()
     {
         if (player1ScoreText != null)
-            player1ScoreText.text = player1Score + " - Hue";
+            player1ScoreText.text = "Hue - " + player1Score;
 
         if (player2ScoreText != null)
-            player2ScoreText.text = "Goo - " + player2Score;
+            player2ScoreText.text = player2Score + " - Goo";
     }
 
     private void PlayFlowerSound()
