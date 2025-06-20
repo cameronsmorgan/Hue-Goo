@@ -7,6 +7,7 @@ public class Level4GameManager : MonoBehaviour
 {
     public static Level4GameManager Instance;
 
+
     public int player1Score = 0;
     public int player2Score = 0;
 
@@ -16,7 +17,10 @@ public class Level4GameManager : MonoBehaviour
 
     private bool roundOver = false;
 
-    public List<string> raceRounds; 
+    public bool isFirstRound = true;
+
+    public List<string> raceRounds;
+    public List<int> roundWinners = new List<int>(3);
 
     private void Awake()
     {
@@ -31,10 +35,13 @@ public class Level4GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (Instance.roundWinners.Count == 0)
+            Instance.roundWinners = new List<int> { 0, 0, 0 };
+
         if (Instance.raceRounds.Count == 0)
         {
             populateRaceRounds(3);
-            LoadNextRoundScene();
+            //LoadNextRoundScene();
         }
     }
 
@@ -68,23 +75,35 @@ public class Level4GameManager : MonoBehaviour
 
     public void AwardPoint(string playerName)
     {
+        
+
+        Debug.Log(Instance.currentRound);
         if (playerName == "Player1")
         {
             player1Score++;
+            Instance.roundWinners[Instance.currentRound] = 1;
             Debug.Log("Player 1 Score: " + player1Score);
         }
         else if (playerName == "Player2")
         {
             player2Score++;
+            Instance.roundWinners[Instance.currentRound] = 2;
             Debug.Log("Player 2 Score: " + player2Score);
         }
+
+        foreach (int winner in Instance.roundWinners)
+            Debug.Log($"Winner: {winner}");
 
         Debug.Log($"Hue: {player1Score} - {player2Score} :Goo");
     }
 
     public void EndRound()
     {
+        Debug.Log("End Round");
+
         currentRound++;
+
+        Debug.Log($"Next ROund = : {currentRound}");
 
         GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Player");
 
@@ -129,7 +148,7 @@ public class Level4GameManager : MonoBehaviour
     public void LoadNextRoundScene()
     {
         //string[] roundScenes = { "Race1", "Race2", "Race3" };
-
+        Debug.Log("load");
         if (currentRound < raceRounds.Count)
         {
             string nextSceneName = raceRounds[currentRound];
@@ -165,5 +184,6 @@ public class Level4GameManager : MonoBehaviour
         player2Score = 0;
         currentRound = 0;
     }
+
 
 }

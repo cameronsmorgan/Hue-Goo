@@ -8,7 +8,7 @@ public class PlayerColorFill : MonoBehaviour
     public Tilemap grassTilemap;
 
     [Header("Paint Tile")]
-    public RuleTile paintTile;
+    public TileBase paintTile;
 
     [Header("Player Info")]
     public string playerName = "Player1"; // Set this in the Inspector

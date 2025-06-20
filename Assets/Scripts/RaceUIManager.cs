@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+
 public class RaceUIManager : MonoBehaviour
 {
     public static RaceUIManager Instance;
@@ -16,6 +18,11 @@ public class RaceUIManager : MonoBehaviour
     public Text countdownText;
     public Text finalResultText;
 
+    [Header("Winner Images")]
+    public List<Image> roundWinnerImages;
+    public Sprite player1Leaf;
+    public Sprite player2Leaf;
+
     void Awake()
     {
         if (Instance == null)
@@ -29,19 +36,26 @@ public class RaceUIManager : MonoBehaviour
         if (playerName == "Player1")
         {
             player1Slider.value = percentage;
-            player1Text.text = $"P1: {percentage * 100f:F1}%";
+            player1Text.text = $"{(int) (percentage * 100f)}%";
         }
         else if (playerName == "Player2")
         {
             player2Slider.value = percentage;
-            player2Text.text = $"P2: {percentage * 100f:F1}%";
+            player2Text.text = $"{(int) (percentage * 100f)}%";
         }
     }
 
     public void ShowWinner(string playerName)
     {
         winnerText.gameObject.SetActive(true);
+
+        if (playerName == "Player1")
+            playerName = "Hue";
+        if (playerName == "Player2")
+            playerName = "Goo";
+
         winnerText.text = $"{playerName} finished first!";
+        ShowRoundWinnerUI();
     }
 
     public void StartCountdown(float duration)
@@ -78,8 +92,34 @@ public class RaceUIManager : MonoBehaviour
 
     public void HideAllUI()
     {
+        ShowRoundWinnerUI();
+
         winnerText.gameObject.SetActive(false);
         countdownText.gameObject.SetActive(false);
         finalResultText.gameObject.SetActive(false);
+    }
+
+    void ShowRoundWinnerUI()
+    {
+        Debug.Log("Show round winner");
+        foreach (int winner in Level4GameManager.Instance.roundWinners)
+            Debug.Log($"Winner: {winner}");
+
+        for (int i = 0;i < Level4GameManager.Instance.roundWinners.Count; i++ )
+        {
+            int winPlayer = Level4GameManager.Instance.roundWinners[i];
+
+            switch (winPlayer)
+            {
+                case 1:
+                    roundWinnerImages[i].sprite = player1Leaf;
+                    break;
+                case 2:
+                    roundWinnerImages[i].sprite = player2Leaf;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
