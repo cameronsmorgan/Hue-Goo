@@ -17,8 +17,8 @@ public class PetalFlower : MonoBehaviour
 
     void Start()
     {
-        ColorUtility.TryParseHtmlString("#78DBD9", out player1Color);
-        ColorUtility.TryParseHtmlString("#96DA83", out player2Color);
+        ColorUtility.TryParseHtmlString("#2DAFAC", out player1Color);
+        ColorUtility.TryParseHtmlString("#579645", out player2Color);
         
         // Automatically find all child petals
         petals.Clear();

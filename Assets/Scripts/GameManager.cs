@@ -58,10 +58,10 @@ public class GameManager : MonoBehaviour
     private void UpdateScoreUI()
     {
         if (player1ScoreText != null)
-            player1ScoreText.text = "Hue - " + player1Score;
+            player1ScoreText.text = player1Score + " - Hue";
 
         if (player2ScoreText != null)
-            player2ScoreText.text =  player2Score + " - Goo";
+            player2ScoreText.text = "Goo - " + player2Score;
     }
 
     private void PlayFlowerSound()
