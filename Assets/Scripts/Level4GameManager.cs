@@ -41,7 +41,7 @@ public class Level4GameManager : MonoBehaviour
         if (Instance.raceRounds.Count == 0)
         {
             populateRaceRounds(3);
-            //LoadNextRoundScene();
+            LoadNextRoundScene();
         }
     }
 
